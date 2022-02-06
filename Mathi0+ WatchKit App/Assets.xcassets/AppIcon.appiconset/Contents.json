@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "IMG_2011-16.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -8,6 +9,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "IMG_2011-15.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -15,18 +17,21 @@
       "subtype" : "42mm"
     },
     {
+      "filename" : "IMG_2011-13.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "IMG_2011-12.png",
       "idiom" : "watch",
       "role" : "companionSettings",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "IMG_2011-14.png",
       "idiom" : "watch",
       "role" : "notificationCenter",
       "scale" : "2x",
@@ -34,6 +39,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "IMG_2011-11.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -41,6 +47,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "IMG_2011-10.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -48,6 +55,7 @@
       "subtype" : "40mm"
     },
     {
+      "filename" : "IMG_2011-9.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -55,6 +63,7 @@
       "subtype" : "41mm"
     },
     {
+      "filename" : "IMG_2011-8.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -62,6 +71,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "IMG_2011-7.png",
       "idiom" : "watch",
       "role" : "appLauncher",
       "scale" : "2x",
@@ -69,6 +79,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "IMG_2011-6.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -76,6 +87,7 @@
       "subtype" : "38mm"
     },
     {
+      "filename" : "IMG_2011-5.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -83,6 +95,7 @@
       "subtype" : "42mm"
     },
     {
+      "filename" : "IMG_2011-4.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -90,6 +103,7 @@
       "subtype" : "44mm"
     },
     {
+      "filename" : "IMG_2011-3.png",
       "idiom" : "watch",
       "role" : "quickLook",
       "scale" : "2x",
@@ -97,6 +111,7 @@
       "subtype" : "45mm"
     },
     {
+      "filename" : "IMG_2011-2.png",
       "idiom" : "watch-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
