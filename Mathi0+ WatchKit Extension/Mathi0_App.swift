@@ -12,7 +12,7 @@ struct Mathi0_App: App {
     @SceneBuilder var body: some Scene {
         WindowGroup {
             NavigationView {
-                ContentView()
+                CalcView()
             }
         }
 
