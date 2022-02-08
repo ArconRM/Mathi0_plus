@@ -18,7 +18,7 @@ enum CalcButtons: String {
     case eight = "8"
     case nine = "9"
     case zero = "0"
-    case dot = "."
+    case comma = ","
     case equal = "="
     case add = "+"
     case subtract = "-"
@@ -36,77 +36,57 @@ enum CalcButtons: String {
 
 struct CalcView: View {
     
+    @EnvironmentObject var viewModel: CalcViewModel
+    
     let buttons: [[CalcButtons]] = [
-            [.clear, .sqrt, .square, .cube],
-            [.seven, .eight, .nine, .multiply],
-            [.four, .five, .six, .subtract],
-            [.one, .two, .three, .add],
-            [.zero, .dot, .equal],
-            [.factorial, .negative, .percent, .divide]
-        ]
-        @State var resultText: String = "0"
-        
-        var body: some View {
-            VStack {
-                HStack {
-                    Spacer()
-                    Text(resultText)
-                        .font(.system(size: 25))
-                }
-                ScrollView {
-                    
-                    ForEach(buttons, id: \.self) { row in
-                        HStack {
-                            ForEach(row, id: \.self) { item in
-                                Button {
-                                    switch item {
-                                    case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
-                                        if (resultText.count < 18){
-                                            if resultText == "0" {
-                                                resultText = ""
-                                            }
-                                            if resultText == "-0" {
-                                                resultText = String(resultText.dropLast())
-                                            }
-                                            resultText += item.rawValue
-                                        }
-                                    case .clear:
-                                        resultText = "0"
-                                    case .sqrt:
-                                        resultText = "\(_sqrt(number: (Decimal(string: resultText) ?? 0)))"
-                                    case .square:
-                                        resultText = _pow(a: (Decimal(string: resultText) ?? 0), k: 2)
-                                    case .cube:
-                                        resultText = _pow(a: (Decimal(string: resultText) ?? 0), k: 3)
-                                    case .dot:
-                                        resultText += "."
-                                    default:
-                                        resultText = "error"
-                                    }
-                                } label: {
-                                    Text(item.rawValue)
-                                        .font(.system(size: 15))
-                                }
-                                .buttonStyle(CalcButtonStyle())
+        [.clear, .sqrt, .square, .cube],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .subtract],
+        [.one, .two, .three, .add],
+        [.zero, .comma, .equal],
+        [.factorial, .negative, .percent, .divide]
+    ]
+    
+    var body: some View {
+        VStack {
+            HStack {
+                Spacer()
+                Text(viewModel.resultText)
+                    .font(.system(size: 25))
+            }
+            ScrollView {
+                ForEach(buttons, id: \.self) { row in
+                    HStack {
+                        ForEach(row, id: \.self) { item in
+                            Button {
+                                viewModel.solve(item: item)
+                            } label: {
+                                Text(item.rawValue)
+                                    .font(.system(size: 15))
                             }
+                            .buttonStyle(CalcButtonStyle(text: item))
                         }
                     }
                 }
             }
         }
     }
+}
 
-    struct CalcButtonStyle: ButtonStyle {
-     
-        func makeBody(configuration: Self.Configuration) -> some View {
-            configuration.label
-                .frame(width: 15, height: 15, alignment: .center)
-                .padding()
-                .foregroundColor(.white)
-                .background(.gray.opacity(0.3))
-                .cornerRadius(40)
-        }
+struct CalcButtonStyle: ButtonStyle {
+    
+    var text: CalcButtons
+    
+    func makeBody(configuration: Self.Configuration) -> some View {
+        configuration.label
+            .frame(width: 15, height: 15, alignment: .center)
+            .padding()
+            .foregroundColor(.white)
+            .background(configuration.isPressed ? .gray.opacity(0.6) : .gray.opacity(0.3))
+            .cornerRadius(12)
+            .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
     }
+}
 
 struct CalcView_Previews: PreviewProvider {
     static var previews: some View {

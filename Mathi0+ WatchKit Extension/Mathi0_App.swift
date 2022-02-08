@@ -13,6 +13,7 @@ struct Mathi0_App: App {
         WindowGroup {
             NavigationView {
                 CalcView()
+                    .environmentObject(CalcViewModel)
             }
         }
 

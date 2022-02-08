@@ -21,7 +21,7 @@
 		BA27AE5227AFDD3300BD8854 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA27AE5127AFDD3300BD8854 /* ComplicationController.swift */; };
 		BA27AE5427AFDD3600BD8854 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA27AE5327AFDD3600BD8854 /* Assets.xcassets */; };
 		BA27AE5727AFDD3600BD8854 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA27AE5627AFDD3600BD8854 /* Preview Assets.xcassets */; };
-		BA27AE6A27AFDEE200BD8854 /* CalcFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA27AE6927AFDEE200BD8854 /* CalcFunctions.swift */; };
+		BA27AE6A27AFDEE200BD8854 /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +84,7 @@
 		BA27AE5627AFDD3600BD8854 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BA27AE5827AFDD3600BD8854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BA27AE5927AFDD3600BD8854 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		BA27AE6927AFDEE200BD8854 /* CalcFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcFunctions.swift; sourceTree = "<group>"; };
+		BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +155,7 @@
 		BA27AE4827AFDD3300BD8854 /* Mathi0+ WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				BA27AE6827AFDEC200BD8854 /* Functions */,
+				BA27AE6827AFDEC200BD8854 /* ViewModels */,
 				BA27AE6727AFDEBC00BD8854 /* Views */,
 				BA27AE4927AFDD3300BD8854 /* Mathi0_App.swift */,
 				BA27AE4D27AFDD3300BD8854 /* NotificationController.swift */,
@@ -185,12 +185,12 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		BA27AE6827AFDEC200BD8854 /* Functions */ = {
+		BA27AE6827AFDEC200BD8854 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				BA27AE6927AFDEE200BD8854 /* CalcFunctions.swift */,
+				BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */,
 			);
-			path = Functions;
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,7 +337,7 @@
 				BA27AE4C27AFDD3300BD8854 /* CalcView.swift in Sources */,
 				BA27AE5227AFDD3300BD8854 /* ComplicationController.swift in Sources */,
 				BA27AE4A27AFDD3300BD8854 /* Mathi0_App.swift in Sources */,
-				BA27AE6A27AFDEE200BD8854 /* CalcFunctions.swift in Sources */,
+				BA27AE6A27AFDEE200BD8854 /* CalcViewModel.swift in Sources */,
 				BA27AE5027AFDD3300BD8854 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
