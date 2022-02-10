@@ -40,17 +40,21 @@ struct CalcView: View {
     
     let buttons: [[CalcButtons]] = [
         [.clear, .sqrt, .square, .cube],
+        [.factorial, .negative, .percent, .divide],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
         [.one, .two, .three, .add],
-        [.zero, .comma, .equal],
-        [.factorial, .negative, .percent, .divide]
+        [.zero, .comma, .equal]
     ]
     
     var body: some View {
         VStack {
             HStack {
+                Text(viewModel.operationText)
+                    .font(.system(size: 25))
+                
                 Spacer()
+                
                 Text(viewModel.resultText)
                     .font(.system(size: 25))
             }
@@ -62,9 +66,9 @@ struct CalcView: View {
                                 viewModel.solve(item: item)
                             } label: {
                                 Text(item.rawValue)
-                                    .font(.system(size: 15))
+                                    .font(.system(size: CGFloat(viewModel.defineFontSize())))
                             }
-                            .buttonStyle(CalcButtonStyle(text: item))
+                            .buttonStyle(CalcButtonStyle(item: item, color: viewModel.defineColor(item: item), count: viewModel.resultText.count))
                         }
                     }
                 }
@@ -75,14 +79,16 @@ struct CalcView: View {
 
 struct CalcButtonStyle: ButtonStyle {
     
-    var text: CalcButtons
+    var item: CalcButtons
+    var color: Color
+    var count: Int
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .frame(width: 15, height: 15, alignment: .center)
+            .frame(width: item == CalcButtons.zero ? 50 : 15, height: 15, alignment: .center)
             .padding()
             .foregroundColor(.white)
-            .background(configuration.isPressed ? .gray.opacity(0.6) : .gray.opacity(0.3))
+            .background(configuration.isPressed ? color : color.opacity(0.4))
             .cornerRadius(12)
             .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
     }
@@ -91,5 +97,6 @@ struct CalcButtonStyle: ButtonStyle {
 struct CalcView_Previews: PreviewProvider {
     static var previews: some View {
         CalcView()
+            .environmentObject(CalcViewModel())
     }
 }

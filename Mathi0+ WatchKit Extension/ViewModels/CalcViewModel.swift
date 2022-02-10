@@ -6,57 +6,235 @@
 //
 
 import Foundation
+import SwiftUI
 
 final class CalcViewModel: ObservableObject {
     
     @Published var currentNumber: Decimal = 0.0
+    @Published var a: Decimal = 0.0
+    @Published var b: Decimal = 0.0
     @Published var wasOperationPressed: Bool = false
     @Published var isOperationPressed: Bool = false
-    @Published var resultText: String = ""
+    @Published var resultText: String = "0"
+    @Published var operationText: String = ""
+    @Published var wasCommaPressedInThisNumber: Bool = false
     
     func digits(item: CalcButtons) {
-        if (resultText.count < 18){
-            if resultText == "0" {
-                resultText = ""
+        if (resultText != "inf") {
+            if (resultText.count < 18) || (isOperationPressed == true){
+                if resultText == "0" {
+                    resultText = ""
+                }
+                if resultText == "-0" {
+                    resultText = String(resultText.dropLast())
+                }
+                if (isOperationPressed == false) {
+                    resultText += item.rawValue
+                }
+                if (isOperationPressed == true) {
+                    isOperationPressed = false
+                    wasOperationPressed = true
+                    resultText = ""
+                    resultText = resultText + item.rawValue
+                    wasCommaPressedInThisNumber = false
+                }
+                if ((resultText.contains(".")) == true) {
+                    wasCommaPressedInThisNumber = true
+                }
             }
-            if resultText == "-0" {
-                resultText = String(resultText.dropLast())
-            }
-            resultText += item.rawValue
+            currentNumber = Decimal(string: resultText.replacingOccurrences(of: " ", with: ""))!
+        }
+        if resultText == "inf" {
+            resultText = "Error"
         }
     }
     
-    func solve(item: CalcButtons) -> String {
+    func operations(item: CalcButtons) {
+        if (resultText != "inf") {
+            if (wasOperationPressed == false) && (isOperationPressed == false) {
+                isOperationPressed = true
+                a = currentNumber
+                currentNumber = 0
+            } else if (wasOperationPressed == true) && (isOperationPressed == false) {
+                isOperationPressed = true
+                b = currentNumber
+                switch operationText {
+                case "+":
+                    resultText = "\(a+b)"
+                case "-":
+                    resultText = "\(a-b)"
+                case "*":
+                    resultText = "\(a*b)"
+                case "/":
+                    resultText = "\(a/b)"
+                default:
+                    return
+                }
+                a = Decimal(string: resultText)!
+                b = 0.0
+                currentNumber = 0.0
+            } else {
+                a = currentNumber
+            }
+            switch item {
+            case .divide:
+                operationText = "/"
+            case .multiply:
+                operationText = "*"
+            case .subtract:
+                operationText = "-"
+            case .add:
+                operationText = "+"
+            default:
+                operationText = "Er"
+            }
+        }
+        if resultText == "inf" {
+            resultText = "Error"
+        }
+        if ((resultText.contains(".")) == true) {
+            wasCommaPressedInThisNumber = true
+        }
+        if isEndingDotZero(str: resultText) == true {
+            resultText = String(resultText.dropLast())
+            resultText = String(resultText.dropLast())
+        }
+    }
+    
+    func equalPressed(item: CalcButtons) {
+        if (resultText != "inf") && (resultText != "nan") && (resultText != "Error") {
+            if (wasOperationPressed == true) && (isOperationPressed == false) {
+                b = currentNumber
+                switch operationText {
+                case "+":
+                    resultText = "\(a+b)"
+                case "-":
+                    resultText = "\(a-b)"
+                case "*":
+                    resultText = "\(a*b)"
+                case "/":
+                    resultText = "\(a/b)"
+                default:
+                    return
+                }
+                a = Decimal(string: resultText)!
+                b = 0.0
+                currentNumber = a
+                operationText = ""
+            }
+            isOperationPressed = true
+            if (resultText.last == "0") && (String((resultText.dropLast())).last == ".") {
+                resultText = String(resultText.dropLast())
+                resultText = String(resultText.dropLast())
+            }
+        }
+        if resultText == "inf" || resultText == "nan" {
+            resultText = "Error"
+        }
+        if ((resultText.contains(".")) == true) {
+            wasCommaPressedInThisNumber = true
+        }
+        if isEndingDotZero(str: resultText) == true {
+            resultText = String(resultText.dropLast())
+            resultText = String(resultText.dropLast())
+        }
+    }
+    
+    func numberChange(item: CalcButtons) {
+        if (resultText != "inf") && (resultText != "nan") && (resultText != "Error") {
+            switch item {
+            case .percent:
+                resultText = String(currentNumber.doubleValue/100)
+            case .comma:
+                if (wasCommaPressedInThisNumber == false) && (resultText.count < 11) {
+                    resultText = resultText + "."
+                }
+                wasCommaPressedInThisNumber = true
+            case .negative:
+                resultText = "\(-currentNumber)"
+            case .factorial:
+                if isStringAnInt(string: resultText) == true {
+                    resultText = factorial(a: Decimal(string: resultText)!)
+                } else {
+                    resultText = "Error"
+                }
+            case .cube:
+                resultText = _pow(a: currentNumber, k: 3)
+            case .square:
+                resultText = _pow(a: currentNumber, k: 2)
+            case .sqrt:
+                if currentNumber < 0 {
+                    resultText = "Error"
+                } else {
+                    resultText = "\(_sqrt(number: currentNumber))"
+                }
+            default:
+                resultText = "Error"
+            }
+            if (resultText != "-") && (resultText != "inf") && (resultText != "Error") && (resultText != "nan")  {
+                currentNumber = Decimal(string: resultText.replacingOccurrences(of: " ", with: "")) ?? 0
+            }
+        }
+        if resultText == "inf" || resultText == "nan" {
+            resultText = "Error"
+        }
+        if ((resultText.contains(".")) == true) {
+            wasCommaPressedInThisNumber = true
+        }
+        if isEndingDotZero(str: resultText) == true {
+            resultText = String(resultText.dropLast())
+            resultText = String(resultText.dropLast())
+        }
         
-        var wasCommaPressedInThisNumber: Bool = resultText.contains(".")
+    }
+    
+    func solve(item: CalcButtons) {
         
         switch item {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
             digits(item: item)
         case .clear:
             resultText = "0"
+            operationText = ""
+            a = 0.0
+            b = 0.0
             currentNumber = 0.0
-        case .sqrt:
-            resultText = "\(_sqrt(number: (Decimal(string: resultText) ?? 0)))"
-        case .square:
-            resultText = _pow(a: (Decimal(string: resultText) ?? 0), k: 2)
-        case .cube:
-            resultText = _pow(a: (Decimal(string: resultText) ?? 0), k: 3)
-        case .comma:
-            if !wasCommaPressedInThisNumber {
-                resultText += "."
-                wasCommaPressedInThisNumber = true
-            }
-        case .factorial:
-            resultText = factorial(a: Decimal(string: resultText) ?? 0)
-            //                                case .negative:
-            //                                    resultText = String(-Decimal(str))
-        default:
-            resultText = "error"
+            wasOperationPressed = false
+            isOperationPressed = false
+            wasCommaPressedInThisNumber = false
+        case .sqrt, .square, .cube, .comma, .factorial, .negative, .percent:
+            numberChange(item: item)
+        case .divide, .add, .subtract, .multiply:
+            operations(item: item)
+        case .equal:
+            equalPressed(item: item)
         }
     }
     
+    func defineColor(item: CalcButtons) -> Color {
+        var color: Color
+        switch item {
+        case .clear, .sqrt, .square, .cube, .factorial, .percent, .negative:
+            color = .white
+                .opacity(0.6)
+        case .divide, .multiply, .subtract, .add, .equal:
+            color = .blue.opacity(0.6)
+        default:
+            color = .gray.opacity(0.6)
+        }
+        return color
+    }
     
+    func defineFontSize() -> Int {
+        switch resultText.count {
+        case ...10:
+            return 15
+        case 11...16:
+            return 25 - resultText.count
+        default:
+            return 15
+        }
+    }
     
     
     func _sqrt(number: Decimal) -> Decimal {
@@ -110,99 +288,98 @@ final class CalcViewModel: ObservableObject {
     }
     
     
-    func separatedNumber(strNumber: String, number: Decimal, wasCommaPressed: Bool) -> String {
-        //        let originalNumber: String = NSDecimalNumber(decimal: number).stringValue
-        var formattedNumber: String = ""
-        var integerPart: String = ""
-        var fractionalPart: String = ""
-        var i: Int = 0
-        var place: Int = 0
-        
-        fractionalPart = GetFraction(a: strNumber)
-        integerPart = String(number.whole)
-        
-        if integerPart.count > 3 {
-            
-            if integerPart.count % 3 == 0 {
-                
-                for number in integerPart {
-                    
-                    i += 1
-                    place += 1
-                    
-                    formattedNumber += String(number)
-                    
-                    if i == 3 {
-                        if place != integerPart.count {
-                            formattedNumber += " "
-                            i = 0
-                        }
-                    }
-                }
-                if wasCommaPressed == true {
-                    formattedNumber += "."
-                }
-            } else if integerPart.count % 3 == 1 {
-                
-                formattedNumber += String(integerPart.first!)
-                integerPart = String(integerPart.dropFirst())
-                formattedNumber += " "
-                
-                for number in integerPart {
-                    
-                    i += 1
-                    place += 1
-                    
-                    formattedNumber += String(number)
-                    
-                    if i == 3 {
-                        if place != integerPart.count {
-                            formattedNumber += " "
-                            i = 0
-                        }
-                    }
-                }
-                if wasCommaPressed == true {
-                    formattedNumber += "."
-                }
-            } else if integerPart.count % 3 == 2 {
-                
-                for _ in 1...2 {
-                    formattedNumber += String(integerPart.first!)
-                    integerPart = String(integerPart.dropFirst())
-                }
-                
-                formattedNumber += " "
-                
-                for number in integerPart {
-                    
-                    i += 1
-                    place += 1
-                    
-                    formattedNumber += String(number)
-                    
-                    if i == 3 {
-                        if place != integerPart.count {
-                            formattedNumber += " "
-                            i = 0
-                        }
-                    }
-                }
-                if wasCommaPressed == true {
-                    formattedNumber += "."
-                }
-            }
-        } else {
-            formattedNumber = integerPart
-            if wasCommaPressed {
-                if formattedNumber.contains(".") == false {
-                    formattedNumber += "."
-                }
-            }
-        }
-        formattedNumber += fractionalPart
-        return formattedNumber
-    }
+//    func separatedNumber(strNumber: String, number: Decimal, wasCommaPressed: Bool) -> String {
+//        var formattedNumber: String = ""
+//        var integerPart: String = ""
+//        var fractionalPart: String = ""
+//        var i: Int = 0
+//        var place: Int = 0
+//
+//        fractionalPart = GetFraction(a: strNumber)
+//        integerPart = String(number.whole)
+//
+//        if integerPart.count > 3 {
+//
+//            if integerPart.count % 3 == 0 {
+//
+//                for number in integerPart {
+//
+//                    i += 1
+//                    place += 1
+//
+//                    formattedNumber += String(number)
+//
+//                    if i == 3 {
+//                        if place != integerPart.count {
+//                            formattedNumber += " "
+//                            i = 0
+//                        }
+//                    }
+//                }
+//                if wasCommaPressed == true {
+//                    formattedNumber += "."
+//                }
+//            } else if integerPart.count % 3 == 1 {
+//
+//                formattedNumber += String(integerPart.first!)
+//                integerPart = String(integerPart.dropFirst())
+//                formattedNumber += " "
+//
+//                for number in integerPart {
+//
+//                    i += 1
+//                    place += 1
+//
+//                    formattedNumber += String(number)
+//
+//                    if i == 3 {
+//                        if place != integerPart.count {
+//                            formattedNumber += " "
+//                            i = 0
+//                        }
+//                    }
+//                }
+//                if wasCommaPressed == true {
+//                    formattedNumber += "."
+//                }
+//            } else if integerPart.count % 3 == 2 {
+//
+//                for _ in 1...2 {
+//                    formattedNumber += String(integerPart.first!)
+//                    integerPart = String(integerPart.dropFirst())
+//                }
+//
+//                formattedNumber += " "
+//
+//                for number in integerPart {
+//
+//                    i += 1
+//                    place += 1
+//
+//                    formattedNumber += String(number)
+//
+//                    if i == 3 {
+//                        if place != integerPart.count {
+//                            formattedNumber += " "
+//                            i = 0
+//                        }
+//                    }
+//                }
+//                if wasCommaPressed == true {
+//                    formattedNumber += "."
+//                }
+//            }
+//        } else {
+//            formattedNumber = integerPart
+//            if wasCommaPressed {
+//                if formattedNumber.contains(".") == false {
+//                    formattedNumber += "."
+//                }
+//            }
+//        }
+//        formattedNumber += fractionalPart
+//        return formattedNumber
+//    }
     
     func isEndingDotZero(str: String) -> Bool {
         if (str.last == "0") && (str.dropLast().last == ".") && (str != "") {
