@@ -39,8 +39,8 @@ struct CalcView: View {
     @EnvironmentObject var viewModel: CalcViewModel
     
     let buttons: [[CalcButtons]] = [
-        [.clear, .sqrt, .square, .cube],
-        [.factorial, .negative, .percent, .divide],
+        [.clear, .negative, .percent, .factorial],
+        [.sqrt, .square, .cube, .divide],
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
         [.one, .two, .three, .add],

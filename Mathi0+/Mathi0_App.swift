@@ -11,7 +11,8 @@ import SwiftUI
 struct Mathi0_App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(CalcViewModel())
         }
     }
 }
