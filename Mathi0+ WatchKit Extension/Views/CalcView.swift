@@ -51,7 +51,7 @@ struct CalcView: View {
         VStack {
             HStack {
                 Text(viewModel.operationText)
-                    .font(.system(size: 25))
+                    .font(.system(size: CGFloat(viewModel.defineFontSize())))
                 
                 Spacer()
                 
@@ -66,7 +66,7 @@ struct CalcView: View {
                                 viewModel.solve(item: item)
                             } label: {
                                 Text(item.rawValue)
-                                    .font(.system(size: CGFloat(viewModel.defineFontSize())))
+                                    .font(.system(size: 15))
                             }
                             .buttonStyle(CalcButtonStyle(item: item, color: viewModel.defineColor(item: item), count: viewModel.resultText.count))
                         }

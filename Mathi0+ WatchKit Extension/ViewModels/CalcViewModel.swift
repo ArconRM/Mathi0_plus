@@ -228,11 +228,11 @@ final class CalcViewModel: ObservableObject {
     func defineFontSize() -> Int {
         switch resultText.count {
         case ...10:
-            return 15
+            return 25
         case 11...16:
-            return 25 - resultText.count
+            return 35 - resultText.count
         default:
-            return 15
+            return 25
         }
     }
     

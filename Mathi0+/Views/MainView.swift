@@ -26,6 +26,7 @@ enum MainViewButtons: String {
 struct MainView: View {
     
     @State var showCalc: Bool = false
+    @State var showSquareEqs: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -61,6 +62,7 @@ struct MainView: View {
                                     .foregroundColor(.black)
                             }
                         })
+                        .foregroundColor(.black)
                         .pickerStyle(MenuPickerStyle())
                 }
                 .padding()
@@ -77,7 +79,14 @@ struct MainView: View {
                                     withAnimation(.easeOut) {
                                         showCalc.toggle()
                                     }
+                                } else if item == .SquareEq {
+                                    withAnimation(.easeOut) {
+                                        showSquareEqs.toggle()
+                                    }
                                 }
+                                let generator = UIImpactFeedbackGenerator(style: .light)
+                                generator.prepare()
+                                generator.impactOccurred()
                             } label: {
                                 Text(item.rawValue)
                                     .foregroundColor(.black)
@@ -85,11 +94,16 @@ struct MainView: View {
                                     .padding()
                             }
                             .buttonStyle(.bordered)
-                            .background(.white.opacity(0.8))
+                            .background(.white.opacity(0.5))
                             .cornerRadius(20)
                             .shadow(radius: 2)
                             .sheet(isPresented: $showCalc) {
                                 CalcView(isPresented: $showCalc)
+                                    .environmentObject(CalcViewModel())
+                            }
+                            .sheet(isPresented: $showSquareEqs) {
+                                SquareEqsView(isPresented: $showSquareEqs)
+                                    .environmentObject(SquareEqsViewModel())
                             }
                         }
                     }

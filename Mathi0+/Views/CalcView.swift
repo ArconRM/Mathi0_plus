@@ -12,6 +12,7 @@ struct CalcView: View {
     @EnvironmentObject var viewModel: CalcViewModel
     //    @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
+    @Environment(\.colorScheme) var colorScheme
     
     let buttons: [[CalcButtons]] = [
         [.clear, .negative, .percent, .factorial],
@@ -25,7 +26,7 @@ struct CalcView: View {
     var body: some View {
         ZStack {
             Color.gray
-                .opacity(0.5)
+                .opacity(0.2)
                 .ignoresSafeArea()
             VStack {
                 HStack{
@@ -34,22 +35,29 @@ struct CalcView: View {
                     } label: {
                         Text("<")
                             .font(.system(size: 40))
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
                             .bold()
                             .padding()
                     }
                     Spacer()
-                    
+                    Button {
+                        viewModel.delete()
+                    } label: {
+                        Label("", systemImage: "delete.left.fill")
+                            .foregroundColor(colorScheme == .dark ? .white : .black)
+                            .font(.system(size: 30))
+                    }
                 }
                 HStack {
                     Text(viewModel.operationText)
-                        .font(.system(size: 55))
-                        .padding()
+                        .font(.system(size: 40))
+                        .padding(.leading)
                     
                     Spacer()
                     
                     Text(viewModel.resultText)
-                        .padding()
-                        .font(.system(size: 55))
+                        .padding([.bottom, .trailing])
+                        .font(.system(size: CGFloat(viewModel.defineFontSize())))
                 }
                 
                 Spacer()
@@ -65,7 +73,8 @@ struct CalcView: View {
                                 generator.impactOccurred()
                             } label: {
                                 Text(item.rawValue)
-                                    .font(.system(size: CGFloat(viewModel.defineFontSize())))
+                                    .font(.system(size: 35))
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             }
                             .buttonStyle(CalcButtonStyle(item: item, color: viewModel.defineColor(item: item), count: viewModel.resultText.count))
                         }

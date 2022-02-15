@@ -27,6 +27,9 @@
 		BA7BBBC627B815C500A9CA2E /* CalcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBC527B815C400A9CA2E /* CalcView.swift */; };
 		BA7BBBCA27B8165200A9CA2E /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */; };
 		BA7BBBCC27B8165F00A9CA2E /* CalcModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBCB27B8165F00A9CA2E /* CalcModels.swift */; };
+		BAFAC3D627B945E900604ADE /* SquareEqsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFAC3D527B945E900604ADE /* SquareEqsView.swift */; };
+		BAFAC3D827B961F500604ADE /* SquareEqsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */; };
+		BAFAC3DA27B969B300604ADE /* SquareEqsKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAFAC3D927B969B300604ADE /* SquareEqsKeyboardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +98,9 @@
 		BA7BBBC527B815C400A9CA2E /* CalcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcView.swift; sourceTree = "<group>"; };
 		BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA7BBBCB27B8165F00A9CA2E /* CalcModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcModels.swift; sourceTree = "<group>"; };
+		BAFAC3D527B945E900604ADE /* SquareEqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEqsView.swift; sourceTree = "<group>"; };
+		BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquareEqsViewModel.swift; path = "Mathi0+/Views/SquareEqsViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BAFAC3D927B969B300604ADE /* SquareEqsKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEqsKeyboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +214,7 @@
 		BA7BBBC727B8162700A9CA2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */,
 				BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */,
 			);
 			path = ViewModels;
@@ -225,6 +232,8 @@
 			isa = PBXGroup;
 			children = (
 				BA27AE3027AFDD2A00BD8854 /* MainView.swift */,
+				BAFAC3D527B945E900604ADE /* SquareEqsView.swift */,
+				BAFAC3D927B969B300604ADE /* SquareEqsKeyboardView.swift */,
 				BA7BBBC527B815C400A9CA2E /* CalcView.swift */,
 				BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */,
 				BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */,
@@ -363,9 +372,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAFAC3D827B961F500604ADE /* SquareEqsViewModel.swift in Sources */,
 				BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */,
 				BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */,
 				BA27AE3127AFDD2A00BD8854 /* MainView.swift in Sources */,
+				BAFAC3D627B945E900604ADE /* SquareEqsView.swift in Sources */,
+				BAFAC3DA27B969B300604ADE /* SquareEqsKeyboardView.swift in Sources */,
 				BA7BBBC627B815C500A9CA2E /* CalcView.swift in Sources */,
 				BA7BBBCC27B8165F00A9CA2E /* CalcModels.swift in Sources */,
 				BA27AE2F27AFDD2A00BD8854 /* Mathi0_App.swift in Sources */,
