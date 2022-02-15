@@ -99,9 +99,9 @@ final class SquareEqsViewModel: ObservableObject {
     }
     
     func Clear() {
-        aText = ""
-        bText = ""
-        cText = ""
+        aText = "0"
+        bText = "0"
+        cText = "0"
     }
     
     func Solve() {

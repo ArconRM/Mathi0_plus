@@ -244,9 +244,9 @@ final class CalcViewModel: ObservableObject {
         case .clear, .sqrt, .square, .cube, .factorial, .percent, .negative:
             color = .black.opacity(0.4)
         case .divide, .multiply, .subtract, .add, .equal:
-            color = .blue.opacity(0.5)
+            color = .blue.opacity(0.6)
         default:
-            color = .gray.opacity(0.5)
+            color = .gray.opacity(0.6)
         }
         return color
     }

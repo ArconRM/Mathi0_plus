@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  Mathi0+
 //
 //  Created by Artemiy Mirotvortsev on 06.02.2022.
@@ -27,6 +27,7 @@ struct MainView: View {
     
     @State var showCalc: Bool = false
     @State var showSquareEqs: Bool = false
+    @State var showLCM_GCD: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -48,68 +49,74 @@ struct MainView: View {
                 GradientBackground()
                     .ignoresSafeArea()
             }
-            VStack {
-                HStack {
+            if showCalc {
+                CalcView(isPresented: $showCalc)
+                    .environmentObject(CalcViewModel())
+            } else if showSquareEqs {
+                SquareEqsView(isPresented: $showSquareEqs)
+                    .environmentObject(SquareEqsViewModel())
+            } else if showLCM_GCD {
+                LCM_GCD_View(isPresented: $showLCM_GCD)
+                    .environmentObject(LCM_GCD_ViewModel())
+            } else {
+                VStack {
+                    HStack {
+                        Spacer()
+                        
+                        Picker(
+                            selection: $backgroundSelection,
+                            label: Label("", systemImage: "gear.circle.fill")
+                                .foregroundColor(.black),
+                            content: {
+                                ForEach(backgrounds, id: \.self) { option in
+                                    Text(option.rawValue)
+                                        .foregroundColor(.black)
+                                }
+                            })
+                            .foregroundColor(.black)
+                            .pickerStyle(MenuPickerStyle())
+                    }
+                    .padding()
+                    Text("Mathi0+")
+                        .font(.system(size: 60))
+                        .bold()
                     Spacer()
                     
-                    Picker(
-                        selection: $backgroundSelection,
-                        label: Label("", systemImage: "gear.circle.fill")
-                            .foregroundColor(.black),
-                        content: {
-                            ForEach(backgrounds, id: \.self) { option in
-                                Text(option.rawValue)
-                                    .foregroundColor(.black)
-                            }
-                        })
-                        .foregroundColor(.black)
-                        .pickerStyle(MenuPickerStyle())
-                }
-                .padding()
-                Text("Mathi0+")
-                    .font(.system(size: 60))
-                    .bold()
-                Spacer()
-                
-                ForEach(buttons, id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { item in
-                            Button {
-                                if item == .Calc {
-                                    withAnimation(.easeOut) {
-                                        showCalc.toggle()
+                    ForEach(buttons, id: \.self) { row in
+                        HStack {
+                            ForEach(row, id: \.self) { item in
+                                Button {
+                                    if item == .Calc {
+                                        withAnimation(.easeOut) {
+                                            showCalc.toggle()
+                                        }
+                                    } else if item == .SquareEq {
+                                        withAnimation(.easeOut) {
+                                            showSquareEqs.toggle()
+                                        }
+                                    } else if item == .LCM_GCD {
+                                        withAnimation(.easeInOut) {
+                                            showLCM_GCD.toggle()
+                                        }
                                     }
-                                } else if item == .SquareEq {
-                                    withAnimation(.easeOut) {
-                                        showSquareEqs.toggle()
-                                    }
+                                    let generator = UIImpactFeedbackGenerator(style: .light)
+                                    generator.prepare()
+                                    generator.impactOccurred()
+                                } label: {
+                                    Text(item.rawValue)
+                                        .foregroundColor(.black)
+                                        .frame(width: 120, height: 50, alignment: .center)
+                                        .padding()
                                 }
-                                let generator = UIImpactFeedbackGenerator(style: .light)
-                                generator.prepare()
-                                generator.impactOccurred()
-                            } label: {
-                                Text(item.rawValue)
-                                    .foregroundColor(.black)
-                                    .frame(width: 120, height: 50, alignment: .center)
-                                    .padding()
-                            }
-                            .buttonStyle(.bordered)
-                            .background(.white.opacity(0.5))
-                            .cornerRadius(20)
-                            .shadow(radius: 2)
-                            .sheet(isPresented: $showCalc) {
-                                CalcView(isPresented: $showCalc)
-                                    .environmentObject(CalcViewModel())
-                            }
-                            .sheet(isPresented: $showSquareEqs) {
-                                SquareEqsView(isPresented: $showSquareEqs)
-                                    .environmentObject(SquareEqsViewModel())
+                                .buttonStyle(.bordered)
+                                .background(.white.opacity(0.5))
+                                .cornerRadius(20)
+                                .shadow(radius: 2)
                             }
                         }
                     }
+                    Spacer()
                 }
-                
-                Spacer()
             }
         }
     }

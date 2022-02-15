@@ -24,6 +24,9 @@
 		BA27AE6A27AFDEE200BD8854 /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */; };
 		BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */; };
 		BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */; };
+		BA69CFBF27BBF8910026FC6F /* LCM&GCD_View.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69CFBE27BBF8910026FC6F /* LCM&GCD_View.swift */; };
+		BA69CFC127BBF8A60026FC6F /* LCM&GCD_ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69CFC027BBF8A60026FC6F /* LCM&GCD_ViewModel.swift */; };
+		BA69CFC327BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA69CFC227BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift */; };
 		BA7BBBC627B815C500A9CA2E /* CalcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBC527B815C400A9CA2E /* CalcView.swift */; };
 		BA7BBBCA27B8165200A9CA2E /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */; };
 		BA7BBBCC27B8165F00A9CA2E /* CalcModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBCB27B8165F00A9CA2E /* CalcModels.swift */; };
@@ -95,6 +98,9 @@
 		BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesBackground.swift; sourceTree = "<group>"; };
+		BA69CFBE27BBF8910026FC6F /* LCM&GCD_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LCM&GCD_View.swift"; sourceTree = "<group>"; };
+		BA69CFC027BBF8A60026FC6F /* LCM&GCD_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LCM&GCD_ViewModel.swift"; path = "Mathi0+/Views/LCM&GCD_ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BA69CFC227BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LCM&GCD_KeyboardView.swift"; path = "Mathi0+/ViewModels/LCM&GCD_KeyboardView.swift"; sourceTree = SOURCE_ROOT; };
 		BA7BBBC527B815C400A9CA2E /* CalcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcView.swift; sourceTree = "<group>"; };
 		BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA7BBBCB27B8165F00A9CA2E /* CalcModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcModels.swift; sourceTree = "<group>"; };
@@ -214,6 +220,7 @@
 		BA7BBBC727B8162700A9CA2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BA69CFC027BBF8A60026FC6F /* LCM&GCD_ViewModel.swift */,
 				BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */,
 				BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */,
 			);
@@ -231,7 +238,9 @@
 		BA9418C627B57F1000CBABFC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BA69CFC227BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift */,
 				BA27AE3027AFDD2A00BD8854 /* MainView.swift */,
+				BA69CFBE27BBF8910026FC6F /* LCM&GCD_View.swift */,
 				BAFAC3D527B945E900604ADE /* SquareEqsView.swift */,
 				BAFAC3D927B969B300604ADE /* SquareEqsKeyboardView.swift */,
 				BA7BBBC527B815C400A9CA2E /* CalcView.swift */,
@@ -373,14 +382,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAFAC3D827B961F500604ADE /* SquareEqsViewModel.swift in Sources */,
+				BA69CFC127BBF8A60026FC6F /* LCM&GCD_ViewModel.swift in Sources */,
 				BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */,
 				BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */,
 				BA27AE3127AFDD2A00BD8854 /* MainView.swift in Sources */,
 				BAFAC3D627B945E900604ADE /* SquareEqsView.swift in Sources */,
+				BA69CFC327BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift in Sources */,
 				BAFAC3DA27B969B300604ADE /* SquareEqsKeyboardView.swift in Sources */,
 				BA7BBBC627B815C500A9CA2E /* CalcView.swift in Sources */,
 				BA7BBBCC27B8165F00A9CA2E /* CalcModels.swift in Sources */,
 				BA27AE2F27AFDD2A00BD8854 /* Mathi0_App.swift in Sources */,
+				BA69CFBF27BBF8910026FC6F /* LCM&GCD_View.swift in Sources */,
 				BA7BBBCA27B8165200A9CA2E /* CalcViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

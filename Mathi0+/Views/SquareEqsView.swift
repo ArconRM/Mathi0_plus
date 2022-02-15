@@ -23,7 +23,13 @@ struct SquareEqsView: View {
             VStack {
                 HStack {
                     Button("<") {
-                        isPresented = false
+                        withAnimation(.easeInOut) {
+                            isPresented = false
+                        }
+                        
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
+                        generator.impactOccurred()
                     }
                     .padding(.top, 40)
                     .padding(.leading, 30)
@@ -56,9 +62,10 @@ struct SquareEqsView: View {
                         .foregroundColor(.black)
                         .frame(width: 260.0)
                         .font(.system(size: 30))
-                        .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.4) : Color.white)
+                        .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .padding(.trailing, 10)
+                        .opacity(0.8)
                         .onTapGesture {
                             viewModel.selectedTextField = .a
                             showKeyboard = true
@@ -75,9 +82,10 @@ struct SquareEqsView: View {
                         .foregroundColor(.black)
                         .frame(width: 260.0)
                         .font(.system(size: 30))
-                        .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.4) : Color.white)
+                        .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .padding(.trailing, 10)
+                        .opacity(0.8)
                         .onTapGesture {
                             viewModel.selectedTextField = .b
                             showKeyboard = true
@@ -94,9 +102,10 @@ struct SquareEqsView: View {
                         .foregroundColor(.black)
                         .frame(width: 260.0)
                         .font(.system(size: 30))
-                        .background(viewModel.selectedTextField == .c ? Color.gray.opacity(0.4) : Color.white)
+                        .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .padding(.trailing, 10)
+                        .opacity(0.8)
                         .onTapGesture {
                             viewModel.selectedTextField = .c
                             showKeyboard = true
@@ -120,13 +129,16 @@ struct SquareEqsView: View {
                 .background(.black.opacity(0.8))
                 .cornerRadius(20)
                 .padding(.vertical)
+                .opacity(0.8)
                 
                 Text(viewModel.resultText)
                     .font(.system(size: 25))
-                    .frame(width: UIScreen.screenWidth)
+                    .frame(width: UIScreen.screenWidth - 30)
                     .frame(height: UIScreen.screenHeight / 3 + 20)
                     .background(.white)
                     .foregroundColor(.black)
+                    .cornerRadius(10)
+                    .opacity(0.8)
                 Spacer()
             }
             .onTapGesture {

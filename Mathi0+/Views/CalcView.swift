@@ -31,7 +31,9 @@ struct CalcView: View {
             VStack {
                 HStack{
                     Button {
-                        isPresented = false
+                        withAnimation(.easeInOut) {
+                            isPresented = false
+                        }
                     } label: {
                         Text("<")
                             .font(.system(size: 40))
