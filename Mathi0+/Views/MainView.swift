@@ -28,6 +28,7 @@ struct MainView: View {
     @State var showCalc: Bool = false
     @State var showSquareEqs: Bool = false
     @State var showLCM_GCD: Bool = false
+    @State var showMultipliers: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -58,6 +59,9 @@ struct MainView: View {
             } else if showLCM_GCD {
                 LCM_GCD_View(isPresented: $showLCM_GCD)
                     .environmentObject(LCM_GCD_ViewModel())
+            } else if showMultipliers{
+                MultipliersView(isPresented: $showMultipliers)
+                    .environmentObject(MultipliersViewModel())
             } else {
                 VStack {
                     HStack {
@@ -97,6 +101,10 @@ struct MainView: View {
                                     } else if item == .LCM_GCD {
                                         withAnimation(.easeInOut) {
                                             showLCM_GCD.toggle()
+                                        }
+                                    } else if item == .MultDec {
+                                        withAnimation(.easeInOut) {
+                                            showMultipliers.toggle()
                                         }
                                     }
                                     let generator = UIImpactFeedbackGenerator(style: .light)

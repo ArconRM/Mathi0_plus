@@ -34,6 +34,9 @@ struct CalcView: View {
                         withAnimation(.easeInOut) {
                             isPresented = false
                         }
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
                     } label: {
                         Text("<")
                             .font(.system(size: 40))
@@ -44,6 +47,9 @@ struct CalcView: View {
                     Spacer()
                     Button {
                         viewModel.delete()
+                        let generator = UIImpactFeedbackGenerator(style: .light)
+                        generator.prepare()
+                        generator.impactOccurred()
                     } label: {
                         Label("", systemImage: "delete.left.fill")
                             .foregroundColor(colorScheme == .dark ? .white : .black)
