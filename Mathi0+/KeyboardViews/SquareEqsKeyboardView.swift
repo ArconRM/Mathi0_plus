@@ -51,12 +51,32 @@ struct SquareEqsKeyboardView: View {
                                     Spacer()
                                     
                                     Button(item.rawValue) {
-                                        if viewModel.aText != "" {
-                                            viewModel.aText = String(viewModel.aText.dropLast())
-                                            if viewModel.aText == "" {
-                                                viewModel.aText = "0"
+                                        switch viewModel.selectedTextField {
+                                        case .a:
+                                            if viewModel.aText != "" {
+                                                viewModel.aText = String(viewModel.aText.dropLast())
+                                                if viewModel.aText == "" {
+                                                    viewModel.aText = "0"
+                                                }
                                             }
+                                        case .b:
+                                            if viewModel.bText != "" {
+                                                viewModel.bText = String(viewModel.bText.dropLast())
+                                                if viewModel.bText == "" {
+                                                    viewModel.bText = "0"
+                                                }
+                                            }
+                                        case .c:
+                                            if viewModel.cText != "" {
+                                                viewModel.cText = String(viewModel.cText.dropLast())
+                                                if viewModel.cText == "" {
+                                                    viewModel.cText = "0"
+                                                }
+                                            }
+                                        case .no:
+                                            return
                                         }
+                                        
                                     }
                                     .padding(.trailing, 30)
                                     .buttonStyle(CalcKeyboardButtonStyle(item: item))

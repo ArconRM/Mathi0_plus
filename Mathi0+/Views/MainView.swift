@@ -29,6 +29,8 @@ struct MainView: View {
     @State var showSquareEqs: Bool = false
     @State var showLCM_GCD: Bool = false
     @State var showMultipliers: Bool = false
+    @State var showTrigonometry: Bool = false
+    @State var showConverter: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -59,9 +61,15 @@ struct MainView: View {
             } else if showLCM_GCD {
                 LCM_GCD_View(isPresented: $showLCM_GCD)
                     .environmentObject(LCM_GCD_ViewModel())
-            } else if showMultipliers{
+            } else if showMultipliers {
                 MultipliersView(isPresented: $showMultipliers)
                     .environmentObject(MultipliersViewModel())
+            } else if showTrigonometry {
+                TrigonometryView(isPresented: $showTrigonometry)
+                    .environmentObject(TrigonometryViewModel())
+            } else if showConverter {
+                ConverterView(isPresented: $showConverter)
+                    .environmentObject(ConverterViewModel())
             } else {
                 VStack {
                     HStack {
@@ -105,6 +113,14 @@ struct MainView: View {
                                     } else if item == .MultDec {
                                         withAnimation(.easeInOut) {
                                             showMultipliers.toggle()
+                                        }
+                                    } else if item == .Trig {
+                                        withAnimation(.easeInOut) {
+                                            showTrigonometry.toggle()
+                                        }
+                                    } else if item == .Conv {
+                                        withAnimation(.easeInOut) {
+                                            showConverter.toggle()
                                         }
                                     }
                                     let generator = UIImpactFeedbackGenerator(style: .light)

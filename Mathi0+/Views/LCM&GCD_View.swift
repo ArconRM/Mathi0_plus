@@ -122,6 +122,7 @@ struct LCM_GCD_View: View {
                     .foregroundColor(.black)
                     .cornerRadius(10)
                     .opacity(0.8)
+                    .multilineTextAlignment(.center)
                 Spacer()
             }
             .onTapGesture {

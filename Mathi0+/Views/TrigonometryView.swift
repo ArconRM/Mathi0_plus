@@ -1,17 +1,17 @@
 //
-//  MultipliersView.swift
+//  TrigonometryView.swift
 //  Mathi0+
 //
-//  Created by Artemiy Mirotvortsev on 16.02.2022.
+//  Created by Artemiy Mirotvortsev on 17.02.2022.
 //
 
 import SwiftUI
 
-struct MultipliersView: View {
+struct TrigonometryView: View {
     
     @Binding var isPresented: Bool
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var viewModel: MultipliersViewModel
+    @EnvironmentObject var viewModel: TrigonometryViewModel
     
     @State var showKeyboard: Bool = false
     
@@ -66,7 +66,7 @@ struct MultipliersView: View {
                     }
                     .animation(.easeInOut)
                 
-                Button("Decompose") {
+                Button("Count") {
                     viewModel.Solve()
                     showKeyboard = false
                     viewModel.selectedTextField = .no
@@ -75,7 +75,7 @@ struct MultipliersView: View {
                     generator.prepare()
                     generator.impactOccurred()
                 }
-                .padding(.horizontal, 80)
+                .padding(.horizontal, 115)
                 .padding()
                 .font(.system(size: 30))
                 .foregroundColor(.white)
@@ -101,16 +101,14 @@ struct MultipliersView: View {
                 showKeyboard = false
             }
             .animation(.easeInOut)
-            MultipliersKeyboardView(isShowing: $showKeyboard)
-                .environmentObject(viewModel)
+            TrigonometryKeyboardView(isShowing: $showKeyboard)
         }
     }
 }
 
-
-struct MultipliersView_Previews: PreviewProvider {
+struct TrigonometryView_Previews: PreviewProvider {
     static var previews: some View {
-        MultipliersView(isPresented: .constant(true))
-            .environmentObject(MultipliersViewModel())
+        TrigonometryView(isPresented: .constant(true))
+            .environmentObject(TrigonometryViewModel())
     }
 }
