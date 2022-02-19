@@ -54,6 +54,10 @@ struct PifagorView: View {
                             viewModel.showChooseView = false
                             viewModel.showCatetView = true
                         }
+                        
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
+                        generator.impactOccurred()
                     } label: {
                         Text("Cathetus")
                             .font(.system(size: 30))
@@ -72,6 +76,10 @@ struct PifagorView: View {
                             viewModel.showChooseView = false
                             viewModel.showGipotView = true
                         }
+                        
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
+                        generator.impactOccurred()
                     } label: {
                         Text("Hypotenuse")
                             .font(.system(size: 30))
