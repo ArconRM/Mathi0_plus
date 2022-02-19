@@ -31,13 +31,13 @@ struct SquareEqsView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .padding(.leading, 30)
                     .font(.system(size: 40))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
-
+                    
                     Button("Clear") {
                         viewModel.Clear()
                         
@@ -46,7 +46,7 @@ struct SquareEqsView: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 2.5)
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .font(.system(size: 30))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
@@ -58,7 +58,7 @@ struct SquareEqsView: View {
                         .padding()
                     
                     Text(viewModel.aText)
-                        .frame(height: 70)
+                        .frame(height: 60)
                         .foregroundColor(.black)
                         .frame(width: 260.0)
                         .font(.system(size: 30))
@@ -78,7 +78,7 @@ struct SquareEqsView: View {
                         .padding()
                     
                     Text(viewModel.bText)
-                        .frame(height: 70)
+                        .frame(height: 60)
                         .foregroundColor(.black)
                         .frame(width: 260.0)
                         .font(.system(size: 30))
@@ -88,6 +88,27 @@ struct SquareEqsView: View {
                         .opacity(0.8)
                         .onTapGesture {
                             viewModel.selectedTextField = .b
+                            showKeyboard = true
+                        }
+                        .animation(.easeInOut)
+                }
+                
+                HStack {
+                    Text("c =")
+                        .font(.system(size: 40))
+                        .padding()
+                    
+                    Text(viewModel.cText)
+                        .frame(height: 60)
+                        .foregroundColor(.black)
+                        .frame(width: 260.0)
+                        .font(.system(size: 30))
+                        .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
+                        .cornerRadius(5)
+                        .padding(.trailing, 10)
+                        .opacity(0.8)
+                        .onTapGesture {
+                            viewModel.selectedTextField = .c
                             showKeyboard = true
                         }
                         .animation(.easeInOut)
