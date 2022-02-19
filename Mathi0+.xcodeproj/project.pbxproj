@@ -109,7 +109,7 @@
 		BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		BA34627A27C1137D00B8DA52 /* PifagorKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorKeyboardView.swift; sourceTree = "<group>"; };
-		BA34627C27C14FE900B8DA52 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = "Mathi0+/README.md"; sourceTree = "<group>"; };
+		BA34627D27C150EE00B8DA52 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesBackground.swift; sourceTree = "<group>"; };
 		BA53A0E727BD79E90039C49E /* MultipliersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipliersView.swift; sourceTree = "<group>"; };
 		BA53A0E927BD7B230039C49E /* MultipliersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipliersViewModel.swift; path = "Mathi0+/ViewModels/MultipliersViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -153,7 +153,7 @@
 		BA27AE2227AFDD2A00BD8854 = {
 			isa = PBXGroup;
 			children = (
-				BA34627C27C14FE900B8DA52 /* README.md */,
+				BA34627D27C150EE00B8DA52 /* README.md */,
 				BA27AE2D27AFDD2A00BD8854 /* Mathi0+ */,
 				BA27AE3D27AFDD2F00BD8854 /* Mathi0+ WatchKit App */,
 				BA27AE4827AFDD3300BD8854 /* Mathi0+ WatchKit Extension */,
