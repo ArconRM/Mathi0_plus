@@ -21,6 +21,7 @@ enum keys: String {
     case dot = "."
     case zero = "0"
     case minus = "-"
+    case sqrt = "√"
 }
 
 struct SquareEqsKeyboardView: View {

@@ -23,6 +23,7 @@
 		BA27AE5727AFDD3600BD8854 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA27AE5627AFDD3600BD8854 /* Preview Assets.xcassets */; };
 		BA27AE6A27AFDEE200BD8854 /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */; };
 		BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */; };
+		BA34627B27C1137D00B8DA52 /* PifagorKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA34627A27C1137D00B8DA52 /* PifagorKeyboardView.swift */; };
 		BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */; };
 		BA53A0E827BD79E90039C49E /* MultipliersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53A0E727BD79E90039C49E /* MultipliersView.swift */; };
 		BA53A0EA27BD7B230039C49E /* MultipliersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA53A0E927BD7B230039C49E /* MultipliersViewModel.swift */; };
@@ -35,6 +36,8 @@
 		BA7BBBCA27B8165200A9CA2E /* CalcViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */; };
 		BA880E1E27BE54D9002CE4D3 /* ConverterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */; };
 		BA880E2027BE54EC002CE4D3 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */; };
+		BAC9862027C0E33700F45D60 /* PifagorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9861F27C0E33700F45D60 /* PifagorView.swift */; };
+		BAC9862227C0E38D00F45D60 /* PifagorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */; };
 		BAF33A1C27BE23E2008AE854 /* TrigonometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */; };
 		BAF33A1E27BE23F4008AE854 /* TrigonometryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */; };
 		BAF33A2027BE25D3008AE854 /* TrigonometryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */; };
@@ -105,23 +108,26 @@
 		BA27AE5927AFDD3600BD8854 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		BA27AE6927AFDEE200BD8854 /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA2A866D27B7D659003D0DD6 /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
+		BA34627A27C1137D00B8DA52 /* PifagorKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorKeyboardView.swift; sourceTree = "<group>"; };
 		BA4673ED27B6CA740095ADFE /* ShapesBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapesBackground.swift; sourceTree = "<group>"; };
 		BA53A0E727BD79E90039C49E /* MultipliersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipliersView.swift; sourceTree = "<group>"; };
-		BA53A0E927BD7B230039C49E /* MultipliersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipliersViewModel.swift; path = "Mathi0+/Views/MultipliersViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		BA53A0EB27BD7EF20039C49E /* MultipliersKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipliersKeyboardView.swift; sourceTree = SOURCE_ROOT; };
+		BA53A0E927BD7B230039C49E /* MultipliersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipliersViewModel.swift; path = "Mathi0+/ViewModels/MultipliersViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BA53A0EB27BD7EF20039C49E /* MultipliersKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MultipliersKeyboardView.swift; path = "Mathi0+/KeyboardViews/MultipliersKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
 		BA69CFBE27BBF8910026FC6F /* LCM&GCD_View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LCM&GCD_View.swift"; sourceTree = "<group>"; };
-		BA69CFC027BBF8A60026FC6F /* LCM&GCD_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LCM&GCD_ViewModel.swift"; path = "Mathi0+/Views/LCM&GCD_ViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BA69CFC027BBF8A60026FC6F /* LCM&GCD_ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LCM&GCD_ViewModel.swift"; path = "Mathi0+/ViewModels/LCM&GCD_ViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BA69CFC227BC0FE30026FC6F /* LCM&GCD_KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "LCM&GCD_KeyboardView.swift"; path = "Mathi0+/KeyboardViews/LCM&GCD_KeyboardView.swift"; sourceTree = SOURCE_ROOT; };
-		BA6EEC0E27C034B100BE1031 /* ConverterKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterKeyboardView.swift; sourceTree = SOURCE_ROOT; };
+		BA6EEC0E27C034B100BE1031 /* ConverterKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterKeyboardView.swift; path = "Mathi0+/KeyboardViews/ConverterKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
 		BA7BBBC527B815C400A9CA2E /* CalcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcView.swift; sourceTree = "<group>"; };
 		BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
-		BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterView.swift; sourceTree = SOURCE_ROOT; };
-		BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterViewModel.swift; path = "Mathi0+/Views/ConverterViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterView.swift; path = "Mathi0+/Views/ConverterView.swift"; sourceTree = SOURCE_ROOT; };
+		BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterViewModel.swift; path = "Mathi0+/ViewModels/ConverterViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BAC9861F27C0E33700F45D60 /* PifagorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorView.swift; sourceTree = "<group>"; };
+		BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorViewModel.swift; sourceTree = "<group>"; };
 		BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryView.swift; sourceTree = "<group>"; };
-		BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryViewModel.swift; path = "Mathi0+/Views/TrigonometryViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryKeyboardView.swift; path = "Mathi0+/Views/TrigonometryKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
+		BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryViewModel.swift; path = "Mathi0+/ViewModels/TrigonometryViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryKeyboardView.swift; path = "Mathi0+/KeyboardViews/TrigonometryKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
 		BAFAC3D527B945E900604ADE /* SquareEqsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEqsView.swift; sourceTree = "<group>"; };
-		BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquareEqsViewModel.swift; path = "Mathi0+/Views/SquareEqsViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BAFAC3D727B961F500604ADE /* SquareEqsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SquareEqsViewModel.swift; path = "Mathi0+/ViewModels/SquareEqsViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BAFAC3D927B969B300604ADE /* SquareEqsKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareEqsKeyboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -236,6 +242,7 @@
 		BA53A0E627BD79A70039C49E /* KeyboardViews */ = {
 			isa = PBXGroup;
 			children = (
+				BA34627A27C1137D00B8DA52 /* PifagorKeyboardView.swift */,
 				BA6EEC0E27C034B100BE1031 /* ConverterKeyboardView.swift */,
 				BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */,
 				BA53A0EB27BD7EF20039C49E /* MultipliersKeyboardView.swift */,
@@ -248,6 +255,7 @@
 		BA7BBBC727B8162700A9CA2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */,
 				BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */,
 				BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */,
 				BA53A0E927BD7B230039C49E /* MultipliersViewModel.swift */,
@@ -261,6 +269,7 @@
 		BA9418C627B57F1000CBABFC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BAC9861F27C0E33700F45D60 /* PifagorView.swift */,
 				BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */,
 				BA27AE3027AFDD2A00BD8854 /* MainView.swift */,
 				BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */,
@@ -408,6 +417,7 @@
 				BAFAC3D827B961F500604ADE /* SquareEqsViewModel.swift in Sources */,
 				BA6EEC0F27C034B200BE1031 /* ConverterKeyboardView.swift in Sources */,
 				BA69CFC127BBF8A60026FC6F /* LCM&GCD_ViewModel.swift in Sources */,
+				BAC9862227C0E38D00F45D60 /* PifagorViewModel.swift in Sources */,
 				BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */,
 				BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */,
 				BA880E2027BE54EC002CE4D3 /* ConverterViewModel.swift in Sources */,
@@ -417,8 +427,10 @@
 				BAFAC3DA27B969B300604ADE /* SquareEqsKeyboardView.swift in Sources */,
 				BAF33A1C27BE23E2008AE854 /* TrigonometryView.swift in Sources */,
 				BA7BBBC627B815C500A9CA2E /* CalcView.swift in Sources */,
+				BAC9862027C0E33700F45D60 /* PifagorView.swift in Sources */,
 				BA27AE2F27AFDD2A00BD8854 /* Mathi0_App.swift in Sources */,
 				BA53A0E827BD79E90039C49E /* MultipliersView.swift in Sources */,
+				BA34627B27C1137D00B8DA52 /* PifagorKeyboardView.swift in Sources */,
 				BA880E1E27BE54D9002CE4D3 /* ConverterView.swift in Sources */,
 				BA69CFBF27BBF8910026FC6F /* LCM&GCD_View.swift in Sources */,
 				BA53A0EA27BD7B230039C49E /* MultipliersViewModel.swift in Sources */,

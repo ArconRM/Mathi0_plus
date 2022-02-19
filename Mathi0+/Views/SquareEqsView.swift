@@ -92,26 +92,6 @@ struct SquareEqsView: View {
                         }
                         .animation(.easeInOut)
                 }
-                HStack {
-                    Text("c =")
-                        .font(.system(size: 40))
-                        .padding()
-                    
-                    Text(viewModel.cText)
-                        .frame(height: 70)
-                        .foregroundColor(.black)
-                        .frame(width: 260.0)
-                        .font(.system(size: 30))
-                        .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
-                        .cornerRadius(5)
-                        .padding(.trailing, 10)
-                        .opacity(0.8)
-                        .onTapGesture {
-                            viewModel.selectedTextField = .c
-                            showKeyboard = true
-                        }
-                        .animation(.easeInOut)
-                }
                 
                 Button("Solve") {
                     viewModel.Solve()

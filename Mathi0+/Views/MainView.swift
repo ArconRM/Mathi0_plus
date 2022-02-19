@@ -31,6 +31,7 @@ struct MainView: View {
     @State var showMultipliers: Bool = false
     @State var showTrigonometry: Bool = false
     @State var showConverter: Bool = false
+    @State var showPifagor: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -50,6 +51,7 @@ struct MainView: View {
                     .ignoresSafeArea()
             case .Gradient:
                 GradientBackground()
+                    .blur(radius: 10)
                     .ignoresSafeArea()
             }
             if showCalc {
@@ -70,6 +72,9 @@ struct MainView: View {
             } else if showConverter {
                 ConverterView(isPresented: $showConverter)
                     .environmentObject(ConverterViewModel())
+            } else if showPifagor {
+                PifagorView(isPresented: $showPifagor)
+                    .environmentObject(PifagorViewModel())
             } else {
                 VStack {
                     HStack {
@@ -121,6 +126,10 @@ struct MainView: View {
                                     } else if item == .Conv {
                                         withAnimation(.easeInOut) {
                                             showConverter.toggle()
+                                        }
+                                    } else if item == .Pifagor {
+                                        withAnimation(.easeInOut) {
+                                            showPifagor.toggle()
                                         }
                                     }
                                     let generator = UIImpactFeedbackGenerator(style: .light)
