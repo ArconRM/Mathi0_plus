@@ -77,6 +77,7 @@ struct CalcView: View {
     }
 }
 
+
 struct CalcButtonStyle: ButtonStyle {
     
     var item: CalcButtons
@@ -93,6 +94,7 @@ struct CalcButtonStyle: ButtonStyle {
             .scaleEffect(configuration.isPressed ? 1.2 : 1.0)
     }
 }
+
 
 struct CalcView_Previews: PreviewProvider {
     static var previews: some View {
