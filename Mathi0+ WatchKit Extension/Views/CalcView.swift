@@ -63,7 +63,7 @@ struct CalcView: View {
                     HStack {
                         ForEach(row, id: \.self) { item in
                             Button {
-                                viewModel.solve(item: item)
+                                viewModel.Solve(item: item)
                             } label: {
                                 Text(item.rawValue)
                                     .font(.system(size: 15))

@@ -25,6 +25,7 @@ struct ConverterView: View {
                 .opacity(0.2)
                 .ignoresSafeArea()
                 .onTapGesture {
+                    viewModel.selectedTextField = .no
                     showKeyboard = false
                 }
             VStack {
@@ -102,6 +103,10 @@ struct ConverterView: View {
                 .frame(width: 340)
                 .onChange(of: viewModel.value1) { V in
                     viewModel.Value1Changed()
+                    
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
+                    generator.impactOccurred()
                 }
                 
                 Text(viewModel.number2Text)
@@ -124,6 +129,10 @@ struct ConverterView: View {
                 .padding(.vertical)
                 .frame(width: 340).onChange(of: viewModel.value2) { V in
                     viewModel.Value2Changed()
+                    
+                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                    generator.prepare()
+                    generator.impactOccurred()
                 }
                 
                 Spacer()

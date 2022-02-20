@@ -27,6 +27,7 @@ struct ConverterKeyboardView: View {
                 Color.gray.opacity(0)
                     .ignoresSafeArea()
                     .onTapGesture {
+                        viewModel.selectedTextField = .no
                         isShowing = false
                     }
                 
