@@ -22,6 +22,12 @@ enum keys: String {
     case zero = "0"
     case minus = "-"
     case sqrt = "√"
+    case A = "A"
+    case B = "B"
+    case C = "C"
+    case D = "D"
+    case F = "F"
+    case E = "E"
 }
 
 struct SquareEqsKeyboardView: View {
@@ -32,11 +38,10 @@ struct SquareEqsKeyboardView: View {
     @Binding var isShowing: Bool
     
     var buttons: [[keys]] = [
-        [.delete],
-        [.one, .two, .three],
-        [.four, .five, .six],
-        [.seven, .eight, .nine],
-        [.dot, .zero, .minus]
+        [.one, .four, .seven, .zero],
+        [.two, .five, .eight, .F],
+        [.three, .six, .nine, .E],
+        [.delete, .A , .B, .C, .D]
     ]
     
     var body: some View {
@@ -44,113 +49,62 @@ struct SquareEqsKeyboardView: View {
             if isShowing {
                 Color.gray.opacity(0)
                     .ignoresSafeArea()
-                VStack(spacing: 15) {
-                    ForEach(buttons, id: \.self) { row in
-                        HStack{
-                            ForEach(row, id: \.self) { item in
-                                if item == .delete {
-                                    Spacer()
-                                    
-                                    Button(item.rawValue) {
-                                        switch viewModel.selectedTextField {
-                                        case .a:
+                HStack(spacing: 15) {
+                    ForEach(buttons, id: \.self) { column in
+                        VStack {
+                            ForEach(column, id: \.self) { item in
+                                Button(item.rawValue) {
+                                    switch viewModel.selectedTextField {
+                                    case .a:
+                                        if item == .delete {
                                             if viewModel.aText != "" {
                                                 viewModel.aText = String(viewModel.aText.dropLast())
                                                 if viewModel.aText == "" {
                                                     viewModel.aText = "0"
                                                 }
                                             }
-                                        case .b:
+                                        } else if item == .dot {
+                                            if !viewModel.aText.contains(".") {
+                                                viewModel.aText += item.rawValue
+                                            }
+                                        } else {
+                                            if viewModel.aText == "0" {
+                                                viewModel.aText = ""
+                                            } else if viewModel.aText == "-0" {
+                                                viewModel.aText = "-"
+                                            }
+                                            viewModel.aText += item.rawValue
+                                        }
+                                    case .b:
+                                        if item == .delete {
                                             if viewModel.bText != "" {
                                                 viewModel.bText = String(viewModel.bText.dropLast())
                                                 if viewModel.bText == "" {
                                                     viewModel.bText = "0"
                                                 }
                                             }
-                                        case .c:
-                                            if viewModel.cText != "" {
-                                                viewModel.cText = String(viewModel.cText.dropLast())
-                                                if viewModel.cText == "" {
-                                                    viewModel.cText = "0"
-                                                }
-                                            }
-                                        case .no:
-                                            return
-                                        }
-                                        
-                                    }
-                                    .padding(.trailing, 30)
-                                    .buttonStyle(CalcKeyboardButtonStyle(item: item))
-                                } else {
-                                    Button(item.rawValue) {
-                                        switch viewModel.selectedTextField {
-                                        case .a:
-                                            if item == .minus {
-                                                if viewModel.aText == "0" {
-                                                    viewModel.aText = "-0"
-                                                } else if viewModel.aText != ""{
-                                                    viewModel.aText = "\(Decimal(string: viewModel.aText)!.negativeValue)"
-                                                }
-                                            } else if item == .dot {
-                                                if !viewModel.aText.contains(".") {
-                                                    viewModel.aText += item.rawValue
-                                                }
-                                            } else {
-                                                if viewModel.aText == "0" {
-                                                    viewModel.aText = ""
-                                                } else if viewModel.aText == "-0" {
-                                                    viewModel.aText = "-"
-                                                }
-                                                viewModel.aText += item.rawValue
-                                            }
-                                        case .b:
-                                            if item == .minus {
-                                                if viewModel.bText == "0" {
-                                                    viewModel.bText = "-0"
-                                                } else if viewModel.bText != ""{
-                                                    viewModel.bText = "\(Decimal(string: viewModel.bText)!.negativeValue)"
-                                                }
-                                            } else if item == .dot {
-                                                if !viewModel.bText.contains(".") {
-                                                    viewModel.bText += item.rawValue
-                                                }
-                                            } else {
-                                                if viewModel.bText == "0" {
-                                                    viewModel.bText = ""
-                                                } else if viewModel.bText == "-0" {
-                                                    viewModel.bText = "-"
-                                                }
+                                        } else if item == .dot {
+                                            if !viewModel.bText.contains(".") {
                                                 viewModel.bText += item.rawValue
                                             }
-                                        case .c:
-                                            if item == .minus {
-                                                if viewModel.cText == "0" {
-                                                    viewModel.cText = "-0"
-                                                } else if viewModel.cText != ""{
-                                                    viewModel.cText = "\(Decimal(string: viewModel.cText)!.negativeValue)"
-                                                }
-                                            } else if item == .dot {
-                                                if !viewModel.cText.contains(".") {
-                                                    viewModel.cText += item.rawValue
-                                                }
-                                            } else {
-                                                if viewModel.cText == "0" {
-                                                    viewModel.cText = ""
-                                                } else if viewModel.cText == "-0" {
-                                                    viewModel.cText = "-"
-                                                }
-                                                viewModel.cText += item.rawValue
+                                        } else {
+                                            if viewModel.bText == "0" {
+                                                viewModel.bText = ""
+                                            } else if viewModel.bText == "-0" {
+                                                viewModel.bText = "-"
                                             }
-                                        case .no:
-                                            return
+                                            viewModel.bText += item.rawValue
                                         }
-                                        
-                                        let generator = UIImpactFeedbackGenerator(style: .medium)
-                                        generator.prepare()
-                                        generator.impactOccurred()
+                                    default:
+                                        return
                                     }
-                                    .buttonStyle(CalcKeyboardButtonStyle(item: item))
+                                    
+                                    let generator = UIImpactFeedbackGenerator(style: .medium)
+                                    generator.prepare()
+                                    generator.impactOccurred()
                                 }
+                                .buttonStyle(CalcKeyboardButtonStyle(item: item))
+                                
                             }
                         }
                     }
@@ -164,9 +118,10 @@ struct SquareEqsKeyboardView: View {
         }
         .ignoresSafeArea()
         .onTapGesture {
-            isShowing = false
+            withAnimation(.easeInOut) {
+                isShowing = false
+            }
         }
-        .animation(.easeInOut)
     }
 }
 
@@ -176,8 +131,8 @@ public struct CalcKeyboardButtonStyle: ButtonStyle {
     
     public func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .frame(width: item == .delete ? 60 : 100)
-            .frame(height: item == .delete ? 40 : 45)
+            .frame(width: item == .delete || item == .A || item == .B || item == .C || item == .D ? 60 : 70)
+            .frame(height: item == .delete || item == .A || item == .B || item == .C || item == .D  ? 42 : 55)
             .background(configuration.isPressed ? .white : .white.opacity(0.7))
             .cornerRadius(5)
             .foregroundColor(.black)

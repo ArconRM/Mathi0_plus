@@ -19,7 +19,6 @@ final class SquareEqsViewModel: ObservableObject {
     var aStr: String = "0", bStr: String = "0", cStr: String = "0"
     var d: Decimal = 0.0, b2: Decimal = 0.0
     var sqrtD: String = "", strx1: String = "", strx2: String = ""
-    var noSolutionText = "Нет корней", discriminantText = "Дискриминант"
     
     @Published var aText = "0"
     @Published var bText = "0"
@@ -158,7 +157,7 @@ final class SquareEqsViewModel: ObservableObject {
                 
                 if ((a != 0) && (b == 0) && (c != 0)) {
                     if (c/a > 0) {
-                        resultText = noSolutionText
+                        resultText = "No solution"
                     } else {
                         x1 = _sqrt(number: -c/a)
                         x2 = -x1
@@ -183,7 +182,7 @@ final class SquareEqsViewModel: ObservableObject {
                     for _ in 1...2 {
                         
                         if d<0 {
-                            resultText = "\(discriminantText) < 0. \n \(noSolutionText)"
+                            resultText = "\("Discriminant") < 0. \n \("No solution")"
                         }
                         
                         if d == 0 {
@@ -191,9 +190,9 @@ final class SquareEqsViewModel: ObservableObject {
                             x2 = x1
                             x1Fraction = GetFraction(a: x1)
                             if x1Fraction.count <= 10 {
-                                resultText = "\(discriminantText) = 0. \n x1 = x2 = \(x1)"
+                                resultText = "\("Discriminant") = 0. \n x1 = x2 = \(x1)"
                             } else {
-                                resultText = "\(discriminantText) = 0. \n x1 = x2 = \(-b) / \(a2)"
+                                resultText = "\("Discriminant") = 0. \n x1 = x2 = \(-b) / \(a2)"
                             }
                         }
                         
@@ -230,7 +229,7 @@ final class SquareEqsViewModel: ObservableObject {
                                 default:
                                     return
                                 }
-                                resultText = "\(discriminantText) = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
+                                resultText = "\("Discriminant") = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
                                 
                             } else {
                                 b2 = b/2
@@ -266,7 +265,7 @@ final class SquareEqsViewModel: ObservableObject {
                                     return
                                 }
                                 
-                                resultText = "\(discriminantText)(1) = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
+                                resultText = "\("Discriminant")(1) = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
                             }
                         }
                     }

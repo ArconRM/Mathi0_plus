@@ -9,10 +9,10 @@ import Foundation
 import SwiftUI
 
 final class PifagorViewModel: ObservableObject {
+    
     @Published var showChooseView: Bool = true
     @Published var showGipotView: Bool = false
     @Published var showCatetView: Bool = false
-    
     @Published var showKeyboard: Bool = false
     
     @Published var aText: String = "0"
@@ -21,7 +21,7 @@ final class PifagorViewModel: ObservableObject {
     @Published var resultText: String = ""
     @Published var selectedTextField: textFields = .no
     
-    func GetFraction(a: String) -> String {
+    func getFraction(a: String) -> String {
         var aStr = a
         let k: Int = aStr.count-1
         
@@ -61,8 +61,8 @@ final class PifagorViewModel: ObservableObject {
         if number == 0 {
             return 0
         }
-        if Double(GetFraction(a: "\(number)").count).truncatingRemainder(dividingBy: 2) == 0 {
-            a = a * pow(10, GetFraction(a: "\(number)").count)
+        if Double(getFraction(a: "\(number)").count).truncatingRemainder(dividingBy: 2) == 0 {
+            a = a * pow(10, getFraction(a: "\(number)").count)
             b = a.int
             while b > 1 {
                 while b % factor == 0 {
@@ -82,7 +82,7 @@ final class PifagorViewModel: ObservableObject {
         } else {
             return Decimal(sqrt(number.doubleValue))
         }
-        return numberToReturn / pow(10, GetFraction(a: "\(number)").count / 2)
+        return numberToReturn / pow(10, getFraction(a: "\(number)").count / 2)
     }
     
     func Clear() {

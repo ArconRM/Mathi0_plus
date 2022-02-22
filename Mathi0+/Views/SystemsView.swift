@@ -1,17 +1,17 @@
 //
-//  PifagorChooseView.swift
+//  SystemsView.swift
 //  Mathi0+
 //
-//  Created by Artemiy Mirotvortsev on 19.02.2022.
+//  Created by Artemiy Mirotvortsev on 21.02.2022.
 //
 
 import SwiftUI
 
-struct PifagorView: View {
+struct SystemsView: View {
     
     @Binding var isPresented: Bool
     @Environment(\.colorScheme) var colorScheme
-    @EnvironmentObject var viewModel: PifagorViewModel
+    @EnvironmentObject var viewModel: SystemsViewModel
     
     var body: some View {
         ZStack {
@@ -42,25 +42,20 @@ struct PifagorView: View {
                         
                         Spacer()
                     }
-                    Text("What do you need\n to find?")
-                        .multilineTextAlignment(.center)
-                        .foregroundColor(.white)
-                        .font(.system(size: 40))
-                        .padding(.top, 10)
                     
                     Spacer()
                     
                     Button {
                         withAnimation(.easeInOut) {
                             viewModel.showChooseView = false
-                            viewModel.showCatetView = true
+                            viewModel.showSystems = true
                         }
                         
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
                         generator.impactOccurred()
                     } label: {
-                        Text("Cathetus")
+                        Text("Convert")
                             .font(.system(size: 30))
                             .foregroundColor(.black)
                             .frame(width: 250, height: 90, alignment: .center)
@@ -75,14 +70,14 @@ struct PifagorView: View {
                     Button {
                         withAnimation(.easeInOut) {
                             viewModel.showChooseView = false
-                            viewModel.showGipotView = true
+                            viewModel.showSystemsOperations = true
                         }
                         
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()
                         generator.impactOccurred()
                     } label: {
-                        Text("Hypotenuse")
+                        Text("Operations")
                             .font(.system(size: 30))
                             .foregroundColor(.black)
                             .frame(width: 250, height: 90, alignment: .center)
@@ -97,12 +92,12 @@ struct PifagorView: View {
                     
                     Spacer()
                 }
-            } else if viewModel.showCatetView {
+            } else if viewModel.showSystems {
                 VStack {
                     HStack {
                         Button("<") {
                             withAnimation(.easeInOut) {
-                                viewModel.showCatetView = false
+                                viewModel.showSystems = false
                                 viewModel.showChooseView = true
                                 viewModel.showKeyboard = false
                                 viewModel.Clear()
@@ -113,6 +108,7 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.leading, 30)
+                        .padding(.top, 40)
                         .font(.system(size: 40))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
@@ -131,52 +127,32 @@ struct PifagorView: View {
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
                     
-                    HStack {
-                        Text("a = ")
-                            .font(.system(size: 40))
-                            .padding()
-                        
-                        Text(viewModel.aText)
-                            .frame(height: 70)
-                            .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
-                            .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
-                            .cornerRadius(5)
-                            .padding(.trailing, 10)
-                            .opacity(0.8)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    viewModel.selectedTextField = .a
-                                    viewModel.showKeyboard = true
-                                }
+                    Text(viewModel.aText)
+                        .frame(height: 70)
+                        .foregroundColor(.black)
+                        .frame(width: 340.0)
+                        .font(.system(size: 30))
+                        .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
+                        .cornerRadius(5)
+                        .opacity(0.8)
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .a
+                                viewModel.showKeyboard = true
                             }
-                    }
+                        }
                     
-                    HStack {
-                        Text("b = ")
-                            .font(.system(size: 40))
-                            .padding()
-                        
-                        Text(viewModel.bText)
-                            .frame(height: 70)
-                            .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
-                            .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
-                            .cornerRadius(5)
-                            .padding(.trailing, 10)
-                            .opacity(0.8)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    viewModel.selectedTextField = .b
-                                    viewModel.showKeyboard = true
-                                }
-                            }
+                    Picker(selection: $viewModel.system1, label: Text(viewModel.system1.rawValue)) {
+                        ForEach(Systems.allCases, id: \.self) { value in
+                            Text(value.rawValue)
+                        }
                     }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(maxHeight: 30)
+                    .padding(.vertical, 60)
                     
                     Button("Solve") {
-                        viewModel.SolveGip()
+                        viewModel.SolveSystems()
                         withAnimation(.easeInOut) {
                             viewModel.showKeyboard = false
                         }
@@ -195,24 +171,32 @@ struct PifagorView: View {
                     .padding(.vertical)
                     .opacity(0.8)
                     
-                    Spacer()
+                    Picker(selection: $viewModel.system2, label: Text(viewModel.system2.rawValue)) {
+                        ForEach(Systems.allCases, id: \.self) { value in
+                            Text(value.rawValue)
+                        }
+                    }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(maxHeight: 30)
+                    .padding(.vertical, 60)
                     
                     Text(viewModel.resultText)
-                        .font(.system(size: 25))
-                        .frame(width: UIScreen.screenWidth - 30)
-                        .frame(height: UIScreen.screenHeight / 3 + 20)
-                        .background(.white)
+                        .frame(height: 70)
                         .foregroundColor(.black)
-                        .cornerRadius(10)
+                        .frame(width: 340.0)
+                        .font(.system(size: 30))
+                        .background(Color.white)
+                        .cornerRadius(5)
                         .opacity(0.8)
-                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
                 }
-            } else if viewModel.showGipotView {
+            } else if viewModel.showSystemsOperations {
                 VStack {
                     HStack {
                         Button("<") {
                             withAnimation(.easeInOut) {
-                                viewModel.showGipotView = false
+                                viewModel.showSystems = false
                                 viewModel.showChooseView = true
                                 viewModel.showKeyboard = false
                                 viewModel.Clear()
@@ -222,8 +206,8 @@ struct PifagorView: View {
                             generator.prepare()
                             generator.impactOccurred()
                         }
-                        .padding(.top, 40)
                         .padding(.leading, 30)
+                        .padding(.top, 20)
                         .font(.system(size: 40))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
@@ -237,56 +221,71 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.trailing, UIScreen.screenWidth / 2.5)
-                        .padding(.top, 40)
+                        .padding(.top, 20)
                         .font(.system(size: 30))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
-                    HStack {
-                        Text("a = ")
-                            .font(.system(size: 40))
-                            .padding()
-                        
-                        Text(viewModel.aText)
-                            .frame(height: 70)
-                            .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
-                            .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
-                            .cornerRadius(5)
-                            .padding(.trailing, 10)
-                            .opacity(0.8)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    viewModel.selectedTextField = .a
-                                    viewModel.showKeyboard = true
-                                }
+                    
+                    Text(viewModel.aText)
+                        .frame(height: 70)
+                        .foregroundColor(.black)
+                        .frame(width: 340.0)
+                        .font(.system(size: 30))
+                        .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
+                        .cornerRadius(5)
+                        .opacity(0.8)
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .a
+                                viewModel.showKeyboard = true
                             }
+                        }
+                    
+                    Picker(selection: $viewModel.operation, label: Text(viewModel.operation.rawValue)) {
+                        ForEach(Operations.allCases, id: \.self) { value in
+                            Text(value.rawValue)
+                        }
                     }
+                    .pickerStyle(WheelPickerStyle())
+                    .frame(maxHeight: 30)
+                    .padding(.vertical, 50)
+                    
+                    Text(viewModel.bText)
+                        .frame(height: 70)
+                        .foregroundColor(.black)
+                        .frame(width: 340.0)
+                        .font(.system(size: 30))
+                        .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
+                        .cornerRadius(5)
+                        .opacity(0.8)
+                        .onTapGesture {
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .b
+                                viewModel.showKeyboard = true
+                            }
+                        }
                     
                     HStack {
-                        Text("c = ")
-                            .font(.system(size: 40))
-                            .padding()
+                        Text("in")
+                            .font(.system(size: 25))
                         
-                        Text(viewModel.cText)
-                            .frame(height: 70)
-                            .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
-                            .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
-                            .cornerRadius(5)
-                            .padding(.trailing, 10)
-                            .opacity(0.8)
-                            .onTapGesture {
-                                withAnimation(.easeInOut) {
-                                    viewModel.selectedTextField = .c
-                                    viewModel.showKeyboard = true
-                                }
+                        Picker(selection: $viewModel.system1, label: Text(viewModel.system1.rawValue)) {
+                            ForEach(Systems.allCases, id: \.self) { value in
+                                Text(value.rawValue)
                             }
+                        }
+                        .pickerStyle(.inline)
+                        .frame(maxHeight: 30)
+                        .frame(maxWidth: 70)
+                        .padding(.vertical, 60)
+                        .padding(.leading, 60)
+                        
+                        Text("system")
+                            .font(.system(size: 25))
                     }
                     
-                    Button("Solve") {
-                        viewModel.SolveCath()
+                    Button("Count") {
+                        viewModel.SolveSystemsOpeations()
                         withAnimation(.easeInOut) {
                             viewModel.showKeyboard = false
                         }
@@ -298,35 +297,32 @@ struct PifagorView: View {
                     }
                     .padding(.horizontal, 120)
                     .padding()
-                    .font(.system(size: 32))
+                    .font(.system(size: 30))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
-                    .padding(.vertical)
                     .opacity(0.8)
                     
-                    Spacer()
-                    
                     Text(viewModel.resultText)
-                        .font(.system(size: 25))
-                        .frame(width: UIScreen.screenWidth - 30)
-                        .frame(height: UIScreen.screenHeight / 3 + 20)
-                        .background(.white)
+                        .frame(height: 70)
                         .foregroundColor(.black)
-                        .cornerRadius(10)
+                        .frame(width: 340.0)
+                        .font(.system(size: 30))
+                        .background(Color.white)
+                        .cornerRadius(5)
                         .opacity(0.8)
-                        .multilineTextAlignment(.center)
+                    
+                    Spacer()
                 }
             }
-            
-            PifagorKeyboardView(isShowing: $viewModel.showKeyboard)
+            SystemsKeyboardView(isShowing: $viewModel.showKeyboard)
         }
     }
 }
 
-struct PifagorChooseView_Previews: PreviewProvider {
+struct SystemsView_Previews: PreviewProvider {
     static var previews: some View {
-        PifagorView(isPresented: .constant(true))
-            .environmentObject(PifagorViewModel())
+        SystemsView(isPresented: .constant(true))
+            .environmentObject(SystemsViewModel())
     }
 }

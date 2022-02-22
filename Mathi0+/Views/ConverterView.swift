@@ -39,8 +39,8 @@ struct ConverterView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
                     .padding(.leading, 30)
+                    .padding(.top, 40)
                     .font(.system(size: 40))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
@@ -83,16 +83,17 @@ struct ConverterView: View {
                     .opacity(0.8)
                     .padding(.vertical)
                     .onTapGesture {
-                        viewModel.selectedTextField = .a
-                        showKeyboard = true
+                        withAnimation(.easeInOut) {
+                            viewModel.selectedTextField = .a
+                            showKeyboard = true
+                        }
                     }
-                    .animation(.easeInOut)
                     .onChange(of: viewModel.number1Text) { newValue in
                         viewModel.Number1Changed()
                     }
                 
                 Picker(selection: $viewModel.value1, label: Text(viewModel.value1)) {
-                    ForEach(viewModel.defineValues(), id: \.self) { value in
+                    ForEach(viewModel.DefineValues(), id: \.self) { value in
                         Text(value)
                             .foregroundColor(.black)
                             .font(.system(size: 20))
@@ -118,10 +119,9 @@ struct ConverterView: View {
                     .cornerRadius(5)
                     .opacity(0.8)
                     .padding(.vertical)
-                    .animation(.easeInOut)
                 
                 Picker(selection: $viewModel.value2, label: Text(viewModel.value2)) {
-                    ForEach(viewModel.defineValues(), id: \.self) { value in
+                    ForEach(viewModel.DefineValues(), id: \.self) { value in
                         Text(value)
                     }
                 }
@@ -138,7 +138,7 @@ struct ConverterView: View {
                 Spacer()
                 
                 Picker(selection: $viewModel.valuesType, label: Text(viewModel.valuesType.rawValue)) {
-                    ForEach(typesOfValues.allCases, id: \.self) { value in
+                    ForEach(TypesOfValues.allCases, id: \.self) { value in
                         Text(value.rawValue)
                     }
                 }

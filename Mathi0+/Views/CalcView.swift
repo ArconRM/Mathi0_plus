@@ -46,7 +46,7 @@ struct CalcView: View {
                     }
                     Spacer()
                     Button {
-                        viewModel.delete()
+                        viewModel.Delete()
                         let generator = UIImpactFeedbackGenerator(style: .light)
                         generator.prepare()
                         generator.impactOccurred()
@@ -65,7 +65,7 @@ struct CalcView: View {
                     
                     Text(viewModel.resultText)
                         .padding([.bottom, .trailing])
-                        .font(.system(size: CGFloat(viewModel.defineFontSize())))
+                        .font(.system(size: CGFloat(viewModel.DefineFontSize())))
                 }
                 
                 Spacer()
@@ -74,7 +74,7 @@ struct CalcView: View {
                     HStack {
                         ForEach(row, id: \.self) { item in
                             Button {
-                                viewModel.solve(item: item)
+                                viewModel.Solve(item: item)
                                 
                                 let generator = UIImpactFeedbackGenerator(style: .light)
                                 generator.prepare()
@@ -84,7 +84,7 @@ struct CalcView: View {
                                     .font(.system(size: 35))
                                     .foregroundColor(colorScheme == .dark ? .white : .black)
                             }
-                            .buttonStyle(CalcButtonStyle(item: item, color: viewModel.defineColor(item: item), count: viewModel.resultText.count))
+                            .buttonStyle(CalcButtonStyle(item: item, color: viewModel.DefineColor(item: item), count: viewModel.resultText.count))
                         }
                     }
                 }

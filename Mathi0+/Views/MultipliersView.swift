@@ -20,6 +20,10 @@ struct MultipliersView: View {
             Color.gray
                 .opacity(0.2)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    viewModel.selectedTextField = .no
+                    showKeyboard = false
+                }
             VStack {
                 HStack {
                     Button("<") {
@@ -61,10 +65,11 @@ struct MultipliersView: View {
                     .cornerRadius(5)
                     .opacity(0.8)
                     .onTapGesture {
-                        viewModel.selectedTextField = .a
-                        showKeyboard = true
+                        withAnimation(.easeInOut) {
+                            viewModel.selectedTextField = .a
+                            showKeyboard = true
+                        }
                     }
-                    .animation(.easeInOut)
                 
                 Button("Decompose") {
                     viewModel.Solve()
@@ -96,11 +101,11 @@ struct MultipliersView: View {
                     .opacity(0.8)
                     .multilineTextAlignment(.center)
             }
-            
             .onTapGesture {
-                showKeyboard = false
+                withAnimation(.easeInOut) {
+                    showKeyboard = true
+                }
             }
-            .animation(.easeInOut)
             MultipliersKeyboardView(isShowing: $showKeyboard)
                 .environmentObject(viewModel)
         }

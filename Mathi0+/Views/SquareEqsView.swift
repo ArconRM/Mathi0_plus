@@ -67,10 +67,11 @@ struct SquareEqsView: View {
                         .padding(.trailing, 10)
                         .opacity(0.8)
                         .onTapGesture {
-                            viewModel.selectedTextField = .a
-                            showKeyboard = true
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .a
+                                showKeyboard = true
+                            }
                         }
-                        .animation(.easeInOut)
                 }
                 HStack {
                     Text("b =")
@@ -87,10 +88,11 @@ struct SquareEqsView: View {
                         .padding(.trailing, 10)
                         .opacity(0.8)
                         .onTapGesture {
-                            viewModel.selectedTextField = .b
-                            showKeyboard = true
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .b
+                                showKeyboard = true
+                            }
                         }
-                        .animation(.easeInOut)
                 }
                 
                 HStack {
@@ -108,10 +110,11 @@ struct SquareEqsView: View {
                         .padding(.trailing, 10)
                         .opacity(0.8)
                         .onTapGesture {
-                            viewModel.selectedTextField = .c
-                            showKeyboard = true
+                            withAnimation(.easeInOut) {
+                                viewModel.selectedTextField = .c
+                                showKeyboard = true
+                            }
                         }
-                        .animation(.easeInOut)
                 }
                 
                 Button("Solve") {
@@ -144,9 +147,10 @@ struct SquareEqsView: View {
                 Spacer()
             }
             .onTapGesture {
-                showKeyboard = false
+                withAnimation(.easeInOut) {
+                    showKeyboard = true
+                }
             }
-            .animation(.easeInOut)
             SquareEqsKeyboardView(isShowing: $showKeyboard)
         }
     }

@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum lengthValues: String, CaseIterable {
+enum LengthValues: String, CaseIterable {
     case no = ""
     case mm = "mm"
     case cm = "cm"
@@ -16,7 +16,7 @@ enum lengthValues: String, CaseIterable {
     case km = "km"
 }
 
-enum squareValues: String, CaseIterable  {
+enum SquareValues: String, CaseIterable  {
     case no = ""
     case mm = "mm^2"
     case cm = "cm^2"
@@ -24,7 +24,7 @@ enum squareValues: String, CaseIterable  {
     case km = "km^2"
 }
 
-enum volumeValues: String, CaseIterable  {
+enum VolumeValues: String, CaseIterable  {
     case no = ""
     case mm = "mm^3"
     case cm = "cm^3"
@@ -32,7 +32,7 @@ enum volumeValues: String, CaseIterable  {
     case km = "km^3"
 }
 
-enum massValues: String, CaseIterable  {
+enum MassValues: String, CaseIterable  {
     case no = ""
     case mg = "mg"
     case g = "g"
@@ -40,14 +40,14 @@ enum massValues: String, CaseIterable  {
     case ton = "ton"
 }
 
-enum temperatureValues: String, CaseIterable  {
+enum TemperatureValues: String, CaseIterable  {
     case no = ""
     case c = "°C"
     case k = "K"
     case f = "°F"
 }
 
-enum timeValues: String, CaseIterable  {
+enum TimeValues: String, CaseIterable  {
     case no = ""
     case msec = "msec"
     case sec = "sec"
@@ -55,7 +55,7 @@ enum timeValues: String, CaseIterable  {
     case hour = "hour"
 }
 
-enum typesOfValues: String, CaseIterable  {
+enum TypesOfValues: String, CaseIterable  {
     case no = ""
     case length = "Length"
     case square = "Square"
@@ -65,29 +65,13 @@ enum typesOfValues: String, CaseIterable  {
     case time = "Time"
 }
 
-enum typesOfValuesInt: Int {
-    case no = 0
-    case length = 1
-    case square = 2
-    case volume = 3
-    case mass = 4
-    case temp = 5
-    case time = 6
-}
-
-
-
-
-
-
-
-
 
 final class ConverterViewModel: ObservableObject {
     
     @Published var number1Text: String = "0"
     @Published var number2Text: String = "0"
     @Published var resultText: String = ""
+    
     @Published var value1: String = ""
     @Published var value2: String = ""
     @Published var selectedTextField: textFields = .no
@@ -96,40 +80,7 @@ final class ConverterViewModel: ObservableObject {
     var b: Decimal = 0.0
     var currentTag: Int = 0
     
-    @Published var valuesType: typesOfValues = .no
-    
-    func defineValues() -> [String] {
-        var arr: [String] = []
-        switch valuesType {
-        case .no:
-            return [""]
-        case .length:
-            for unit in lengthValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        case .square:
-            for unit in squareValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        case .volume:
-            for unit in volumeValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        case .mass:
-            for unit in massValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        case .temp:
-            for unit in temperatureValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        case .time:
-            for unit in timeValues.allCases {
-                arr.append(unit.rawValue)
-            }
-        }
-        return arr
-    }
+    @Published var valuesType: TypesOfValues = .no
     
     func Number1Changed() {
         if (number1Text != "") {
@@ -172,6 +123,39 @@ final class ConverterViewModel: ObservableObject {
         value1 = ""
         value2 = ""
         valuesType = .no
+    }
+    
+    func DefineValues() -> [String] {
+        var arr: [String] = []
+        switch valuesType {
+        case .no:
+            return [""]
+        case .length:
+            for unit in LengthValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        case .square:
+            for unit in SquareValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        case .volume:
+            for unit in VolumeValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        case .mass:
+            for unit in MassValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        case .temp:
+            for unit in TemperatureValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        case .time:
+            for unit in TimeValues.allCases {
+                arr.append(unit.rawValue)
+            }
+        }
+        return arr
     }
     
     func translate() -> String {

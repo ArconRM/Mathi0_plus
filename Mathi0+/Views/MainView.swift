@@ -18,7 +18,7 @@ enum MainViewButtons: String {
     case SquareEq = "Square\n Equations"
     case LCM_GCD = "LCM and GCD"
     case Conv = "Converter"
-    case NumbSys = "Number\n systems"
+    case Systems = "Number\n systems"
     case MultDec = "Multiplier\n decomposition"
     case Trig = "Trigonometry"
 }
@@ -32,6 +32,7 @@ struct MainView: View {
     @State var showTrigonometry: Bool = false
     @State var showConverter: Bool = false
     @State var showPifagor: Bool = false
+    @State var showSystems: Bool = false
     @State var backgroundSelection: Backgrounds = .Shapes
     
     let backgrounds: [Backgrounds] = [.Gradient, .Shapes]
@@ -39,21 +40,21 @@ struct MainView: View {
     [
         [.Calc, .Pifagor],
         [.SquareEq, .LCM_GCD],
-        [.Conv, .NumbSys],
+        [.Conv, .Systems],
         [.MultDec, .Trig]
     ]
     
     var body: some View {
         ZStack {
-            switch backgroundSelection {
-            case .Shapes:
-                ShapesBackground()
-                    .ignoresSafeArea()
-            case .Gradient:
-                GradientBackground()
-                    .blur(radius: 10)
-                    .ignoresSafeArea()
-            }
+//            switch backgroundSelection {
+//            case .Shapes:
+//                ShapesBackground()
+//                    .ignoresSafeArea()
+//            case .Gradient:
+//                GradientBackground()
+//                    .blur(radius: 10)
+//                    .ignoresSafeArea()
+//            }
             if showCalc {
                 CalcView(isPresented: $showCalc)
                     .environmentObject(CalcViewModel())
@@ -75,6 +76,9 @@ struct MainView: View {
             } else if showPifagor {
                 PifagorView(isPresented: $showPifagor)
                     .environmentObject(PifagorViewModel())
+            } else if showSystems {
+                SystemsView(isPresented: $showSystems)
+                    .environmentObject(SystemsViewModel())
             } else {
                 VStack {
                     HStack {
@@ -130,6 +134,10 @@ struct MainView: View {
                                     } else if item == .Pifagor {
                                         withAnimation(.easeInOut) {
                                             showPifagor.toggle()
+                                        }
+                                    } else if item == .Systems {
+                                        withAnimation(.easeInOut) {
+                                            showSystems.toggle()
                                         }
                                     }
                                     let generator = UIImpactFeedbackGenerator(style: .light)

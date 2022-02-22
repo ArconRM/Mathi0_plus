@@ -39,13 +39,15 @@ final class CalcViewModel: ObservableObject {
     @Published var currentNumber: Decimal = 0.0
     @Published var a: Decimal = 0.0
     @Published var b: Decimal = 0.0
+    
     @Published var wasOperationPressed: Bool = false
     @Published var isOperationPressed: Bool = false
+    
     @Published var resultText: String = "0"
     @Published var operationText: String = " "
     @Published var wasCommaPressedInThisNumber: Bool = false
     
-    func digits(item: CalcButtons) {
+    func Digits(item: CalcButtons) {
         if (resultText != "inf") {
             if (resultText.count < 12) || (isOperationPressed == true){
                 if resultText == "0" {
@@ -78,7 +80,7 @@ final class CalcViewModel: ObservableObject {
         }
     }
     
-    func operations(item: CalcButtons) {
+    func Operations(item: CalcButtons) {
         if (resultText != "inf") {
             if (wasOperationPressed == false) && (isOperationPressed == false) {
                 isOperationPressed = true
@@ -133,7 +135,7 @@ final class CalcViewModel: ObservableObject {
         }
     }
     
-    func equalPressed(item: CalcButtons) {
+    func EqualPressed(item: CalcButtons) {
         if (resultText != "inf") && (resultText != "nan") && (resultText != "Error") {
             if (wasOperationPressed == true) && (isOperationPressed == false) {
                 b = currentNumber
@@ -175,7 +177,7 @@ final class CalcViewModel: ObservableObject {
         }
     }
     
-    func numberChange(item: CalcButtons) {
+    func NumberChange(item: CalcButtons) {
         if (resultText != "inf") && (resultText != "nan") && (resultText != "Error") {
             switch item {
             case .percent:
@@ -225,11 +227,11 @@ final class CalcViewModel: ObservableObject {
         }
     }
     
-    func solve(item: CalcButtons) {
+    func Solve(item: CalcButtons) {
         
         switch item {
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero:
-            digits(item: item)
+            Digits(item: item)
         case .clear:
             resultText = "0"
             operationText = " "
@@ -240,18 +242,18 @@ final class CalcViewModel: ObservableObject {
             isOperationPressed = false
             wasCommaPressedInThisNumber = false
         case .sqrt, .square, .cube, .comma, .factorial, .negative, .percent:
-            numberChange(item: item)
+            NumberChange(item: item)
         case .divide, .add, .subtract, .multiply:
-            operations(item: item)
+            Operations(item: item)
         case .equal:
-            equalPressed(item: item)
+            EqualPressed(item: item)
         }
         if resultText.count > 3 {
             resultText = separatedNumber(strNumber: resultText, number: Decimal(string: resultText.replacingOccurrences(of: " ", with: ""))!, wasCommaPressed: wasCommaPressedInThisNumber)
         }
     }
     
-    func delete() {
+    func Delete() {
         if resultText.last == "." {
             wasCommaPressedInThisNumber = false
         }
@@ -264,7 +266,7 @@ final class CalcViewModel: ObservableObject {
         }
     }
     
-    func defineColor(item: CalcButtons) -> Color {
+    func DefineColor(item: CalcButtons) -> Color {
         var color: Color
         switch item {
         case .clear, .sqrt, .square, .cube, .factorial, .percent, .negative:
@@ -277,7 +279,7 @@ final class CalcViewModel: ObservableObject {
         return color
     }
     
-    func defineFontSize() -> Int {
+    func DefineFontSize() -> Int {
         switch resultText.count {
         case ...10:
             return 50
@@ -299,8 +301,8 @@ final class CalcViewModel: ObservableObject {
         if number == 0 {
             return 0
         }
-        if Double(GetFraction(a: "\(number)").count).truncatingRemainder(dividingBy: 2) == 0 {
-            a = a * pow(10, GetFraction(a: "\(number)").count)
+        if Double(getFraction(a: "\(number)").count).truncatingRemainder(dividingBy: 2) == 0 {
+            a = a * pow(10, getFraction(a: "\(number)").count)
             b = a.intValue
             while b > 1 {
                 while b % factor == 0 {
@@ -320,10 +322,10 @@ final class CalcViewModel: ObservableObject {
         } else {
             return Decimal(sqrt(number.doubleValue))
         }
-        return numberToReturn / pow(10, GetFraction(a: "\(number)").count / 2)
+        return numberToReturn / pow(10, getFraction(a: "\(number)").count / 2)
     }
     
-    func GetFraction(a: String) -> String {
+    func getFraction(a: String) -> String {
         var aStr = a
         let k: Int = aStr.count-1
         
@@ -347,7 +349,7 @@ final class CalcViewModel: ObservableObject {
         var i: Int = 0
         var place: Int = 0
 
-        fractionalPart = GetFraction(a: strNumber)
+        fractionalPart = getFraction(a: strNumber)
         integerPart = String(number.whole)
 
         if integerPart.count > 3 {

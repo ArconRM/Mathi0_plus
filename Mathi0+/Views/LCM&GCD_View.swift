@@ -20,6 +20,10 @@ struct LCM_GCD_View: View {
             Color.gray
                 .opacity(0.2)
                 .ignoresSafeArea()
+                .onTapGesture {
+                    viewModel.selectedTextField = .no
+                    showKeyboard = false
+                }
             VStack {
                 HStack {
                     Button("<") {
@@ -61,10 +65,11 @@ struct LCM_GCD_View: View {
                     .cornerRadius(5)
                     .opacity(0.8)
                     .onTapGesture {
-                        viewModel.selectedTextField = .a
-                        showKeyboard = true
+                        withAnimation(.easeInOut) {
+                            viewModel.selectedTextField = .a
+                            showKeyboard = true
+                        }
                     }
-                    .animation(.easeInOut)
                 
                 Text(viewModel.bText)
                     .frame(height: 70)
@@ -75,10 +80,11 @@ struct LCM_GCD_View: View {
                     .cornerRadius(5)
                     .opacity(0.8)
                     .onTapGesture {
-                        viewModel.selectedTextField = .b
-                        showKeyboard = true
+                        withAnimation(.easeInOut) {
+                            viewModel.selectedTextField = .b
+                            showKeyboard = true
+                        }
                     }
-                    .animation(.easeInOut)
                 
                 Text(viewModel.cText)
                     .frame(height: 70)
@@ -89,10 +95,11 @@ struct LCM_GCD_View: View {
                     .cornerRadius(5)
                     .opacity(0.8)
                     .onTapGesture {
-                        viewModel.selectedTextField = .c
-                        showKeyboard = true
+                        withAnimation(.easeInOut) {
+                            viewModel.selectedTextField = .c
+                            showKeyboard = true
+                        }
                     }
-                    .animation(.easeInOut)
                 
                 Button("Solve") {
                     viewModel.Solve()
@@ -126,9 +133,10 @@ struct LCM_GCD_View: View {
                 Spacer()
             }
             .onTapGesture {
-                showKeyboard = false
+                withAnimation(.easeInOut) {
+                    showKeyboard = false
+                }
             }
-            .animation(.easeInOut)
             LCM_GCD_KeyboardView(isShowing: $showKeyboard)
         }
     }

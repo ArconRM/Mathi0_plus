@@ -38,6 +38,10 @@
 		BA880E2027BE54EC002CE4D3 /* ConverterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */; };
 		BAC9862027C0E33700F45D60 /* PifagorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9861F27C0E33700F45D60 /* PifagorView.swift */; };
 		BAC9862227C0E38D00F45D60 /* PifagorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */; };
+		BACDF5A727C3EB9800A8EC66 /* SystemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDF5A627C3EB9800A8EC66 /* SystemsView.swift */; };
+		BACDF5A927C3EBBE00A8EC66 /* SystemsKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDF5A827C3EBBE00A8EC66 /* SystemsKeyboardView.swift */; };
+		BACDF5AB27C3EBE600A8EC66 /* SystemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDF5AA27C3EBE600A8EC66 /* SystemsViewModel.swift */; };
+		BACDF5B027C3FFB200A8EC66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACDF5AF27C3FFB200A8EC66 /* LaunchScreen.storyboard */; };
 		BAF33A1C27BE23E2008AE854 /* TrigonometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */; };
 		BAF33A1E27BE23F4008AE854 /* TrigonometryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */; };
 		BAF33A2027BE25D3008AE854 /* TrigonometryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */; };
@@ -124,6 +128,11 @@
 		BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterViewModel.swift; path = "Mathi0+/ViewModels/ConverterViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BAC9861F27C0E33700F45D60 /* PifagorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorView.swift; sourceTree = "<group>"; };
 		BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorViewModel.swift; sourceTree = "<group>"; };
+		BACDF5A627C3EB9800A8EC66 /* SystemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsView.swift; sourceTree = "<group>"; };
+		BACDF5A827C3EBBE00A8EC66 /* SystemsKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsKeyboardView.swift; sourceTree = "<group>"; };
+		BACDF5AA27C3EBE600A8EC66 /* SystemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsViewModel.swift; sourceTree = "<group>"; };
+		BACDF5AC27C3FB5000A8EC66 /* Mathi0--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mathi0--Info.plist"; sourceTree = SOURCE_ROOT; };
+		BACDF5AF27C3FFB200A8EC66 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryView.swift; sourceTree = "<group>"; };
 		BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryViewModel.swift; path = "Mathi0+/ViewModels/TrigonometryViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryKeyboardView.swift; path = "Mathi0+/KeyboardViews/TrigonometryKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
@@ -174,6 +183,8 @@
 		BA27AE2D27AFDD2A00BD8854 /* Mathi0+ */ = {
 			isa = PBXGroup;
 			children = (
+				BACDF5AF27C3FFB200A8EC66 /* LaunchScreen.storyboard */,
+				BACDF5AC27C3FB5000A8EC66 /* Mathi0--Info.plist */,
 				BA53A0E627BD79A70039C49E /* KeyboardViews */,
 				BA7BBBC727B8162700A9CA2E /* ViewModels */,
 				BA9418C627B57F1000CBABFC /* Views */,
@@ -244,6 +255,7 @@
 		BA53A0E627BD79A70039C49E /* KeyboardViews */ = {
 			isa = PBXGroup;
 			children = (
+				BACDF5A827C3EBBE00A8EC66 /* SystemsKeyboardView.swift */,
 				BA34627A27C1137D00B8DA52 /* PifagorKeyboardView.swift */,
 				BA6EEC0E27C034B100BE1031 /* ConverterKeyboardView.swift */,
 				BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */,
@@ -257,6 +269,7 @@
 		BA7BBBC727B8162700A9CA2E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				BACDF5AA27C3EBE600A8EC66 /* SystemsViewModel.swift */,
 				BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */,
 				BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */,
 				BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */,
@@ -273,6 +286,7 @@
 			children = (
 				BAC9861F27C0E33700F45D60 /* PifagorView.swift */,
 				BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */,
+				BACDF5A627C3EB9800A8EC66 /* SystemsView.swift */,
 				BA27AE3027AFDD2A00BD8854 /* MainView.swift */,
 				BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */,
 				BA53A0E727BD79E90039C49E /* MultipliersView.swift */,
@@ -387,6 +401,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BACDF5B027C3FFB200A8EC66 /* LaunchScreen.storyboard in Resources */,
 				BA27AE3627AFDD2F00BD8854 /* Preview Assets.xcassets in Resources */,
 				BA27AE3327AFDD2F00BD8854 /* Assets.xcassets in Resources */,
 			);
@@ -417,11 +432,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAFAC3D827B961F500604ADE /* SquareEqsViewModel.swift in Sources */,
+				BACDF5AB27C3EBE600A8EC66 /* SystemsViewModel.swift in Sources */,
 				BA6EEC0F27C034B200BE1031 /* ConverterKeyboardView.swift in Sources */,
 				BA69CFC127BBF8A60026FC6F /* LCM&GCD_ViewModel.swift in Sources */,
 				BAC9862227C0E38D00F45D60 /* PifagorViewModel.swift in Sources */,
 				BA4673EE27B6CA740095ADFE /* ShapesBackground.swift in Sources */,
 				BA2A866E27B7D659003D0DD6 /* GradientBackground.swift in Sources */,
+				BACDF5A927C3EBBE00A8EC66 /* SystemsKeyboardView.swift in Sources */,
 				BA880E2027BE54EC002CE4D3 /* ConverterViewModel.swift in Sources */,
 				BA27AE3127AFDD2A00BD8854 /* MainView.swift in Sources */,
 				BAFAC3D627B945E900604ADE /* SquareEqsView.swift in Sources */,
@@ -435,6 +452,7 @@
 				BA34627B27C1137D00B8DA52 /* PifagorKeyboardView.swift in Sources */,
 				BA880E1E27BE54D9002CE4D3 /* ConverterView.swift in Sources */,
 				BA69CFBF27BBF8910026FC6F /* LCM&GCD_View.swift in Sources */,
+				BACDF5A727C3EB9800A8EC66 /* SystemsView.swift in Sources */,
 				BA53A0EA27BD7B230039C49E /* MultipliersViewModel.swift in Sources */,
 				BAF33A1E27BE23F4008AE854 /* TrigonometryViewModel.swift in Sources */,
 				BA53A0EC27BD7EF20039C49E /* MultipliersKeyboardView.swift in Sources */,
@@ -710,9 +728,11 @@
 				DEVELOPMENT_TEAM = 2SJ5X5ARC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mathi0--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -742,9 +762,11 @@
 				DEVELOPMENT_TEAM = 2SJ5X5ARC2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Mathi0--Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
