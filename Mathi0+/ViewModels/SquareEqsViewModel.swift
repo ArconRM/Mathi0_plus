@@ -182,7 +182,7 @@ final class SquareEqsViewModel: ObservableObject {
                     for _ in 1...2 {
                         
                         if d<0 {
-                            resultText = "\("Discriminant") < 0. \n \("No solution")"
+                            resultText = "Discriminant" + " < 0. \n" + "No solution"
                         }
                         
                         if d == 0 {
@@ -190,9 +190,9 @@ final class SquareEqsViewModel: ObservableObject {
                             x2 = x1
                             x1Fraction = GetFraction(a: x1)
                             if x1Fraction.count <= 10 {
-                                resultText = "\("Discriminant") = 0. \n x1 = x2 = \(x1)"
+                                resultText = "Discriminant" + " = 0. \n x1 = x2 = \(x1)"
                             } else {
-                                resultText = "\("Discriminant") = 0. \n x1 = x2 = \(-b) / \(a2)"
+                                resultText = "Discriminant" + " = 0. \n x1 = x2 = \(-b) / \(a2)"
                             }
                         }
                         
@@ -229,7 +229,7 @@ final class SquareEqsViewModel: ObservableObject {
                                 default:
                                     return
                                 }
-                                resultText = "\("Discriminant") = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
+                                resultText = "Discriminant" + " = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
                                 
                             } else {
                                 b2 = b/2
@@ -265,7 +265,7 @@ final class SquareEqsViewModel: ObservableObject {
                                     return
                                 }
                                 
-                                resultText = "\("Discriminant")(1) = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
+                                resultText = "Discriminant" + "(1) = \(d) \n x1 = \(strx1) \n x2 = \(strx2)"
                             }
                         }
                     }

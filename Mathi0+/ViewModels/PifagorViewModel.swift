@@ -112,9 +112,9 @@ final class PifagorViewModel: ObservableObject {
             }
             
             if "\(_sqrt(number: a+b))".count <= 6 {
-                resultText = "Hypotenuse = \(_sqrt(number: a+b))"
+                resultText = "Hypotenuse" + " = \(_sqrt(number: a+b))"
             } else {
-                resultText = "Hypotenuse = √\(a+b)"
+                resultText = "Hypotenuse" + " = √\(a+b)"
             }
         }
     }
@@ -156,9 +156,9 @@ final class PifagorViewModel: ObservableObject {
                 }
             }
             if "\(_sqrt(number: c-a))".count <= 6 {
-                resultText = "Cathetus = \(_sqrt(number: c-a))"
+                resultText = "Cathetus" + " = \(_sqrt(number: c-a))"
             } else {
-                resultText = "Cathetus = √\(c-a)"
+                resultText = "Cathetus" + " = √\(c-a)"
             }
         }
     }

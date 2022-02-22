@@ -1,0 +1,57 @@
+/* 
+  Localizable.strings
+  Mathi0+
+
+  Created by Artemiy Mirotvortsev on 22.02.2022.
+  
+*/
+"Count" = "Вычислить";
+"Solve" = "Решить";
+"LCM" = "НОК";
+"GCD" = "НОД";
+"Error" = "Ошибка";
+"Hypotenuse" = "Гипотенуза";
+"Cathetus" = "Катет";
+"Length" = "Длина";
+"Square" = "Площадь";
+"Volume" = "Объем";
+"Mass" = "Масса";
+"Temperature" = "Температура";
+"Time" = "Время";
+"msec" = "мс";
+"sec" = "с";
+"min" = "мин";
+"hour" = "ч";
+"mg" = "мг";
+"g" = "г";
+"kg" = "кг";
+"ton" = "т";
+"mm^3" = "мм^3";
+"cm^3" = "см^3";
+"m^3" = "м^3";
+"km^3" = "км^3";
+"mm" = "мм";
+"cm" = "см";
+"m" = "м";
+"km" = "км";
+"mm^2" = "мм^2";
+"cm^2" = "см^2";
+"m^2" = "м^2";
+"km^2" = "км^2";
+"Discriminant" = "Дискриминант";
+"No solution" = "Нет решений";
+"Calculator" = "Калькулятор";
+"Pifagor\n Theoreme" = "Теорема\n Пифагора";
+"Square\n Equations" = "Квадратные\n уравнения";
+"LCM and GCD" = "НОК и НОД";
+"Converter" = "Конвертер";
+"Number\n systems" = "Системы\n счисления";
+"Multiplier\n decomposition" = "Разложение\n на множители";
+"Trigonometry" = "Тригонометрия";
+"Clear" = "Очистить";
+"What do you need\n to find?" = "Что нужно\n найти?";
+"Convert" = "Перевод";
+"Operations" = "Операции";
+"Decompose" = "Разложить";
+"in" = "в";
+"system" = "системе";

@@ -52,7 +52,7 @@ struct ConverterKeyboardView: View {
                                         }
                                     }
                                     .padding(.trailing, 30)
-                                    .buttonStyle(CalcKeyboardButtonStyle(item: item))
+                                    .buttonStyle(ConverterKeyboardButtonStyle(item: item))
                                 } else {
                                     Button(item.rawValue) {
                                         switch viewModel.selectedTextField {

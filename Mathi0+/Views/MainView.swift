@@ -12,7 +12,7 @@ enum Backgrounds: String {
     case Shapes = "Shapes"
 }
 
-enum MainViewButtons: String {
+enum MainViewButtons: LocalizedStringKey {
     case Calc = "Calculator"
     case Pifagor = "Pifagor\n Theoreme"
     case SquareEq = "Square\n Equations"
@@ -46,15 +46,15 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-//            switch backgroundSelection {
-//            case .Shapes:
-//                ShapesBackground()
-//                    .ignoresSafeArea()
-//            case .Gradient:
-//                GradientBackground()
-//                    .blur(radius: 10)
-//                    .ignoresSafeArea()
-//            }
+            switch backgroundSelection {
+            case .Shapes:
+                ShapesBackground()
+                    .ignoresSafeArea()
+            case .Gradient:
+                GradientBackground()
+                    .blur(radius: 10)
+                    .ignoresSafeArea()
+            }
             if showCalc {
                 CalcView(isPresented: $showCalc)
                     .environmentObject(CalcViewModel())
@@ -145,6 +145,7 @@ struct MainView: View {
                                     generator.impactOccurred()
                                 } label: {
                                     Text(item.rawValue)
+                                        .font(.system(size: 16))
                                         .foregroundColor(.black)
                                         .frame(width: 120, height: 50, alignment: .center)
                                         .padding()

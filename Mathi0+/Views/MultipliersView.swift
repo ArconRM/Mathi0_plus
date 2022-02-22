@@ -49,7 +49,7 @@ struct MultipliersView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.trailing, UIScreen.screenWidth / 2.5)
+                    .padding(.trailing, UIScreen.screenWidth / 3)
                     .padding(.top, 40)
                     .font(.system(size: 30))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -80,7 +80,7 @@ struct MultipliersView: View {
                     generator.prepare()
                     generator.impactOccurred()
                 }
-                .padding(.horizontal, 80)
+                .frame(width: UIScreen.screenWidth - 60)
                 .padding()
                 .font(.system(size: 30))
                 .foregroundColor(.white)

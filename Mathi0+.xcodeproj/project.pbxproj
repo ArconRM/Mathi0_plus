@@ -42,6 +42,7 @@
 		BACDF5A927C3EBBE00A8EC66 /* SystemsKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDF5A827C3EBBE00A8EC66 /* SystemsKeyboardView.swift */; };
 		BACDF5AB27C3EBE600A8EC66 /* SystemsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BACDF5AA27C3EBE600A8EC66 /* SystemsViewModel.swift */; };
 		BACDF5B027C3FFB200A8EC66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BACDF5AF27C3FFB200A8EC66 /* LaunchScreen.storyboard */; };
+		BACDF5B327C52FD600A8EC66 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = BACDF5B527C52FD600A8EC66 /* Localizable.strings */; };
 		BAF33A1C27BE23E2008AE854 /* TrigonometryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */; };
 		BAF33A1E27BE23F4008AE854 /* TrigonometryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */; };
 		BAF33A2027BE25D3008AE854 /* TrigonometryKeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */; };
@@ -126,6 +127,7 @@
 		BA7BBBC927B8165200A9CA2E /* CalcViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcViewModel.swift; sourceTree = "<group>"; };
 		BA880E1D27BE54D9002CE4D3 /* ConverterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterView.swift; path = "Mathi0+/Views/ConverterView.swift"; sourceTree = SOURCE_ROOT; };
 		BA880E1F27BE54EC002CE4D3 /* ConverterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConverterViewModel.swift; path = "Mathi0+/ViewModels/ConverterViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		BAAFA4D427C5475300BF2AD6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BAC9861F27C0E33700F45D60 /* PifagorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorView.swift; sourceTree = "<group>"; };
 		BAC9862127C0E38D00F45D60 /* PifagorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PifagorViewModel.swift; sourceTree = "<group>"; };
 		BACDF5A627C3EB9800A8EC66 /* SystemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		BACDF5AA27C3EBE600A8EC66 /* SystemsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemsViewModel.swift; sourceTree = "<group>"; };
 		BACDF5AC27C3FB5000A8EC66 /* Mathi0--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Mathi0--Info.plist"; sourceTree = SOURCE_ROOT; };
 		BACDF5AF27C3FFB200A8EC66 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BACDF5B627C52FFD00A8EC66 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BAF33A1B27BE23E2008AE854 /* TrigonometryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrigonometryView.swift; sourceTree = "<group>"; };
 		BAF33A1D27BE23F4008AE854 /* TrigonometryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryViewModel.swift; path = "Mathi0+/ViewModels/TrigonometryViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		BAF33A1F27BE25D3008AE854 /* TrigonometryKeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TrigonometryKeyboardView.swift; path = "Mathi0+/KeyboardViews/TrigonometryKeyboardView.swift"; sourceTree = SOURCE_ROOT; };
@@ -162,6 +165,7 @@
 		BA27AE2227AFDD2A00BD8854 = {
 			isa = PBXGroup;
 			children = (
+				BACDF5B527C52FD600A8EC66 /* Localizable.strings */,
 				BA34627D27C150EE00B8DA52 /* README.md */,
 				BA27AE2D27AFDD2A00BD8854 /* Mathi0+ */,
 				BA27AE3D27AFDD2F00BD8854 /* Mathi0+ WatchKit App */,
@@ -383,6 +387,8 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				"en-GB",
 			);
 			mainGroup = BA27AE2227AFDD2A00BD8854;
 			productRefGroup = BA27AE2C27AFDD2A00BD8854 /* Products */;
@@ -402,6 +408,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BACDF5B027C3FFB200A8EC66 /* LaunchScreen.storyboard in Resources */,
+				BACDF5B327C52FD600A8EC66 /* Localizable.strings in Resources */,
 				BA27AE3627AFDD2F00BD8854 /* Preview Assets.xcassets in Resources */,
 				BA27AE3327AFDD2F00BD8854 /* Assets.xcassets in Resources */,
 			);
@@ -489,6 +496,19 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		BACDF5B527C52FD600A8EC66 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BACDF5B627C52FFD00A8EC66 /* ru */,
+				BAAFA4D427C5475300BF2AD6 /* en */,
+			);
+			name = Localizable.strings;
+			path = "Mathi0+";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		BA27AE5A27AFDD3600BD8854 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -545,6 +565,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -597,6 +618,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;

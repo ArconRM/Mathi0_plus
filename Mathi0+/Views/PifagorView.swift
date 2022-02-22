@@ -113,6 +113,7 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.leading, 30)
+                        .padding(.top, 40)
                         .font(.system(size: 40))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
@@ -125,7 +126,7 @@ struct PifagorView: View {
                             generator.prepare()
                             generator.impactOccurred()
                         }
-                        .padding(.trailing, UIScreen.screenWidth / 2.5)
+                        .padding(.trailing, UIScreen.screenWidth / 3)
                         .padding(.top, 40)
                         .font(.system(size: 30))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -186,9 +187,9 @@ struct PifagorView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.horizontal, 120)
+                    .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 32))
+                    .font(.system(size: 30))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
@@ -236,7 +237,7 @@ struct PifagorView: View {
                             generator.prepare()
                             generator.impactOccurred()
                         }
-                        .padding(.trailing, UIScreen.screenWidth / 2.5)
+                        .padding(.trailing, UIScreen.screenWidth / 3)
                         .padding(.top, 40)
                         .font(.system(size: 30))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -296,9 +297,9 @@ struct PifagorView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.horizontal, 120)
+                    .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 32))
+                    .font(.system(size: 30))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
