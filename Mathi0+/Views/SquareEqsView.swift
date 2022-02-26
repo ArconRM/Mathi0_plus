@@ -31,9 +31,9 @@ struct SquareEqsView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .padding(.leading, 30)
-                    .font(.system(size: 40))
+                    .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
@@ -46,25 +46,25 @@ struct SquareEqsView: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 3)
-                    .padding(.top, 40)
-                    .font(.system(size: 30))
+                    .padding(.top, 10)
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                 }
                 
                 HStack {
                     Text("a =")
-                        .font(.system(size: 40))
-                        .padding()
+                        .font(.system(size: UIScreen.screenHeight / 20))
+                        .padding(.vertical, UIScreen.screenHeight / 55)
                     
                     Text(viewModel.aText)
-                        .frame(height: 60)
+                        .frame(width: UIScreen.screenWidth - 115)
+                        .frame(height: UIScreen.screenHeight / 13)
                         .foregroundColor(.black)
-                        .frame(width: 260.0)
                         .font(.system(size: 30))
                         .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
-                        .padding(.trailing, 10)
+                        .padding(.horizontal, 10)
                         .opacity(0.8)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
@@ -75,17 +75,17 @@ struct SquareEqsView: View {
                 }
                 HStack {
                     Text("b =")
-                        .font(.system(size: 40))
-                        .padding()
+                        .font(.system(size: UIScreen.screenHeight / 20))
+                        .padding(.vertical, UIScreen.screenHeight / 55)
                     
                     Text(viewModel.bText)
-                        .frame(height: 60)
+                        .frame(width: UIScreen.screenWidth - 115)
+                        .frame(height: UIScreen.screenHeight / 13)
                         .foregroundColor(.black)
-                        .frame(width: 260.0)
                         .font(.system(size: 30))
                         .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
-                        .padding(.trailing, 10)
+                        .padding(.horizontal, 10)
                         .opacity(0.8)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
@@ -97,17 +97,17 @@ struct SquareEqsView: View {
                 
                 HStack {
                     Text("c =")
-                        .font(.system(size: 40))
-                        .padding()
+                        .font(.system(size: UIScreen.screenHeight / 20))
+                        .padding(.vertical, UIScreen.screenHeight / 55)
                     
                     Text(viewModel.cText)
-                        .frame(height: 60)
+                        .frame(width: UIScreen.screenWidth - 115)
+                        .frame(height: UIScreen.screenHeight / 13)
                         .foregroundColor(.black)
-                        .frame(width: 260.0)
                         .font(.system(size: 30))
                         .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
-                        .padding(.trailing, 10)
+                        .padding(.horizontal, 10)
                         .opacity(0.8)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
@@ -128,7 +128,7 @@ struct SquareEqsView: View {
                 }
                 .frame(width: UIScreen.screenWidth - 60)
                 .padding()
-                .font(.system(size: 30))
+                .font(.system(size: UIScreen.screenHeight / 27))
                 .foregroundColor(.white)
                 .background(.black.opacity(0.8))
                 .cornerRadius(20)
@@ -136,7 +136,7 @@ struct SquareEqsView: View {
                 .opacity(0.8)
                 
                 Text(viewModel.resultText)
-                    .font(.system(size: 25))
+                    .font(.system(size: UIScreen.screenHeight / 32))
                     .frame(width: UIScreen.screenWidth - 30)
                     .frame(height: UIScreen.screenHeight / 3 + 20)
                     .background(.white)
@@ -144,6 +144,8 @@ struct SquareEqsView: View {
                     .cornerRadius(10)
                     .opacity(0.8)
                     .multilineTextAlignment(.center)
+                    .padding(.bottom)
+                
                 Spacer()
             }
             .onTapGesture {
@@ -160,5 +162,6 @@ struct SquareEqsView_Previews: PreviewProvider {
     static var previews: some View {
         SquareEqsView(isPresented: .constant(true))
             .environmentObject(SquareEqsViewModel())
+.previewInterfaceOrientation(.portrait)
     }
 }

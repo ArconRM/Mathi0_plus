@@ -39,12 +39,14 @@ struct CalcView: View {
                         generator.impactOccurred()
                     } label: {
                         Text("<")
-                            .font(.system(size: 40))
+                            .font(.system(size: UIScreen.screenHeight / 20))
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                             .bold()
                             .padding()
                     }
+                    
                     Spacer()
+                    
                     Button {
                         viewModel.Delete()
                         let generator = UIImpactFeedbackGenerator(style: .light)
@@ -53,12 +55,13 @@ struct CalcView: View {
                     } label: {
                         Label("", systemImage: "delete.left.fill")
                             .foregroundColor(colorScheme == .dark ? .white : .black)
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 20))
                     }
                 }
+                
                 HStack {
                     Text(viewModel.operationText)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .padding(.leading)
                     
                     Spacer()
@@ -89,6 +92,7 @@ struct CalcView: View {
                     }
                 }
             }
+            .padding(.bottom, 35)
         }
     }
 }
@@ -102,7 +106,7 @@ struct CalcButtonStyle: ButtonStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
         configuration.label
-            .frame(width: item == CalcButtons.zero ? 141 : 51, height: 50, alignment: .center)
+            .frame(width: item == CalcButtons.zero ? UIScreen.screenWidth / 2.6 : UIScreen.screenWidth / 7.3, height: UIScreen.screenHeight / 15.7, alignment: .center)
             .padding()
             .foregroundColor(.black)
             .background(configuration.isPressed ? color.opacity(0.4) : color)
@@ -117,5 +121,6 @@ struct CalcView_Previews: PreviewProvider {
     static var previews: some View {
         CalcView(isPresented: .constant(true))
             .environmentObject(CalcViewModel())
+.previewInterfaceOrientation(.portrait)
     }
 }

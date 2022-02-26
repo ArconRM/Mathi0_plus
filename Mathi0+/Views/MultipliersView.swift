@@ -35,9 +35,9 @@ struct MultipliersView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .padding(.leading, 30)
-                    .font(.system(size: 40))
+                    .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
@@ -50,17 +50,18 @@ struct MultipliersView: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 3)
-                    .padding(.top, 40)
-                    .font(.system(size: 30))
+                    .padding(.top, 10)
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                 }
+                .padding(.bottom, UIScreen.screenHeight / 20)
                 
                 Text(viewModel.numberText)
-                    .frame(height: 70)
+                    .frame(width: UIScreen.screenWidth - 30)
+                    .frame(height: UIScreen.screenHeight / 10)
                     .foregroundColor(.black)
-                    .frame(width: 340.0)
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
@@ -82,7 +83,7 @@ struct MultipliersView: View {
                 }
                 .frame(width: UIScreen.screenWidth - 60)
                 .padding()
-                .font(.system(size: 30))
+                .font(.system(size: UIScreen.screenHeight / 27))
                 .foregroundColor(.white)
                 .background(.black.opacity(0.8))
                 .cornerRadius(20)
@@ -92,14 +93,15 @@ struct MultipliersView: View {
                 Spacer()
                 
                 Text(viewModel.resultText)
-                    .font(.system(size: 25))
+                    .font(.system(size: UIScreen.screenHeight / 32))
                     .frame(width: UIScreen.screenWidth - 30)
-                    .frame(height: UIScreen.screenHeight / 3 + 90)
+                    .frame(height: UIScreen.screenHeight / 2)
                     .background(.white)
                     .foregroundColor(.black)
                     .cornerRadius(10)
                     .opacity(0.8)
                     .multilineTextAlignment(.center)
+                    .padding(.bottom)
             }
             .onTapGesture {
                 withAnimation(.easeInOut) {
@@ -109,6 +111,7 @@ struct MultipliersView: View {
             MultipliersKeyboardView(isShowing: $showKeyboard)
                 .environmentObject(viewModel)
         }
+        
     }
 }
 

@@ -35,9 +35,9 @@ struct LCM_GCD_View: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
+                    .padding(.top, 10)
                     .padding(.leading, 30)
-                    .font(.system(size: 40))
+                    .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
@@ -50,17 +50,17 @@ struct LCM_GCD_View: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 3)
-                    .padding(.top, 40)
-                    .font(.system(size: 30))
+                    .padding(.top, 10)
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                 }
                 
                 Text(viewModel.aText)
-                    .frame(height: 70)
+                    .frame(height: UIScreen.screenHeight / 11)
                     .foregroundColor(.black)
                     .frame(width: 320.0)
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.4) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
@@ -72,10 +72,10 @@ struct LCM_GCD_View: View {
                     }
                 
                 Text(viewModel.bText)
-                    .frame(height: 70)
+                    .frame(height: UIScreen.screenHeight / 11)
                     .foregroundColor(.black)
                     .frame(width: 320.0)
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.4) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
@@ -87,10 +87,10 @@ struct LCM_GCD_View: View {
                     }
                 
                 Text(viewModel.cText)
-                    .frame(height: 70)
+                    .frame(height: UIScreen.screenHeight / 11)
                     .foregroundColor(.black)
                     .frame(width: 320.0)
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.4) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
@@ -112,7 +112,7 @@ struct LCM_GCD_View: View {
                 }
                 .frame(width: UIScreen.screenWidth - 60)
                 .padding()
-                .font(.system(size: 30))
+                .font(.system(size: UIScreen.screenHeight / 27))
                 .foregroundColor(.white)
                 .background(.black.opacity(0.8))
                 .cornerRadius(20)
@@ -122,7 +122,7 @@ struct LCM_GCD_View: View {
                 Spacer()
                 
                 Text(viewModel.resultText)
-                    .font(.system(size: 25))
+                    .font(.system(size: UIScreen.screenHeight / 32))
                     .frame(width: UIScreen.screenWidth - 30)
                     .frame(height: UIScreen.screenHeight / 3 + 20)
                     .background(.white)
@@ -130,6 +130,8 @@ struct LCM_GCD_View: View {
                     .cornerRadius(10)
                     .opacity(0.8)
                     .multilineTextAlignment(.center)
+                    .padding(.bottom)
+                
                 Spacer()
             }
             .onTapGesture {
