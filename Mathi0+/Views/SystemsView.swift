@@ -35,9 +35,9 @@ struct SystemsView: View {
                             generator.prepare()
                             generator.impactOccurred()
                         }
-                        .padding(.top, 40)
+                        .padding(.top, UIScreen.screenHeight / 20)
                         .padding(.leading, 30)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -56,9 +56,10 @@ struct SystemsView: View {
                         generator.impactOccurred()
                     } label: {
                         Text("Convert")
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .foregroundColor(.black)
-                            .frame(width: 250, height: 90, alignment: .center)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: UIScreen.screenHeight / 8, alignment: .center)
                             .padding()
                     }
                     .buttonStyle(.bordered)
@@ -66,6 +67,7 @@ struct SystemsView: View {
                     .cornerRadius(20)
                     .shadow(radius: 2)
                     .padding(.bottom)
+                    .padding(.horizontal, 30)
                     
                     Button {
                         withAnimation(.easeInOut) {
@@ -78,17 +80,18 @@ struct SystemsView: View {
                         generator.impactOccurred()
                     } label: {
                         Text("Operations")
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .foregroundColor(.black)
-                            .frame(width: 250, height: 90, alignment: .center)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: UIScreen.screenHeight / 8, alignment: .center)
                             .padding()
                     }
                     .buttonStyle(.bordered)
                     .background(.white.opacity(0.5))
                     .cornerRadius(20)
                     .shadow(radius: 2)
-                    .padding(.vertical)
-                    .padding(.bottom, 70)
+                    .padding(.bottom)
+                    .padding(.horizontal, 30)
                     
                     Spacer()
                 }
@@ -108,8 +111,7 @@ struct SystemsView: View {
                             generator.impactOccurred()
                         }
                         .padding(.leading, 30)
-                        .padding(.top, 40)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -122,19 +124,21 @@ struct SystemsView: View {
                             generator.impactOccurred()
                         }
                         .padding(.trailing, UIScreen.screenWidth / 3)
-                        .padding(.top, 40)
-                        .font(.system(size: 30))
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
+                    .padding(.top, 20)
                     
                     Text(viewModel.aText)
-                        .frame(height: 70)
+                        .frame(height: UIScreen.screenHeight / 11)
                         .foregroundColor(.black)
-                        .frame(width: 340.0)
-                        .font(.system(size: 30))
+                        .frame(maxWidth: .infinity)
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .opacity(0.8)
+                        .padding(.vertical)
+                        .padding(.horizontal, 20)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 viewModel.selectedTextField = .a
@@ -149,9 +153,12 @@ struct SystemsView: View {
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(maxHeight: 30)
-                    .padding(.vertical, 60)
+                    .padding(.horizontal, 10)
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: 30)
+                    .padding(.vertical, UIScreen.screenHeight / 12)
                     
-                    Button("Solve") {
+                    Button("Сonvert") {
                         viewModel.SolveSystems()
                         withAnimation(.easeInOut) {
                             viewModel.showKeyboard = false
@@ -164,7 +171,7 @@ struct SystemsView: View {
                     }
                     .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 27))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
@@ -178,16 +185,21 @@ struct SystemsView: View {
                     }
                     .pickerStyle(WheelPickerStyle())
                     .frame(maxHeight: 30)
-                    .padding(.vertical, 60)
+                    .padding(.horizontal, 10)
+                    .frame(maxWidth: .infinity)
+                    .frame(maxHeight: 30)
+                    .padding(.vertical, UIScreen.screenHeight / 12)
                     
                     Text(viewModel.resultText)
-                        .frame(height: 70)
+                        .frame(height: UIScreen.screenHeight / 11)
                         .foregroundColor(.black)
-                        .frame(width: 340.0)
-                        .font(.system(size: 30))
+                        .frame(maxWidth: .infinity)
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .background(Color.white)
                         .cornerRadius(5)
                         .opacity(0.8)
+                        .padding(.vertical)
+                        .padding(.horizontal, 20)
                     
                     Spacer()
                 }
@@ -207,8 +219,7 @@ struct SystemsView: View {
                             generator.impactOccurred()
                         }
                         .padding(.leading, 30)
-                        .padding(.top, 20)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -221,19 +232,21 @@ struct SystemsView: View {
                             generator.impactOccurred()
                         }
                         .padding(.trailing, UIScreen.screenWidth / 3)
-                        .padding(.top, 20)
-                        .font(.system(size: 30))
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
+                    .padding(.top, UIScreen.screenHeight / 37)
                     
                     Text(viewModel.aText)
-                        .frame(height: 70)
+                        .frame(height: UIScreen.screenHeight / 11)
                         .foregroundColor(.black)
-                        .frame(width: 340.0)
-                        .font(.system(size: 30))
+                        .frame(maxWidth: .infinity)
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .opacity(0.8)
+                        .padding(.vertical)
+                        .padding(.horizontal, 20)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 viewModel.selectedTextField = .a
@@ -246,18 +259,19 @@ struct SystemsView: View {
                             Text(value.rawValue)
                         }
                     }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(maxHeight: 30)
-                    .padding(.vertical, 50)
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding(.horizontal)
                     
                     Text(viewModel.bText)
-                        .frame(height: 70)
+                        .frame(height: UIScreen.screenHeight / 11)
                         .foregroundColor(.black)
-                        .frame(width: 340.0)
-                        .font(.system(size: 30))
+                        .frame(maxWidth: .infinity)
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
                         .cornerRadius(5)
                         .opacity(0.8)
+                        .padding(.vertical)
+                        .padding(.horizontal, 20)
                         .onTapGesture {
                             withAnimation(.easeInOut) {
                                 viewModel.selectedTextField = .b
@@ -267,7 +281,7 @@ struct SystemsView: View {
                     
                     HStack {
                         Text("in")
-                            .font(.system(size: 25))
+                            .font(.system(size: UIScreen.screenHeight / 30))
                         
                         Picker(selection: $viewModel.system1, label: Text(viewModel.system1.rawValue)) {
                             ForEach(Systems.allCases, id: \.self) { value in
@@ -281,7 +295,7 @@ struct SystemsView: View {
                         .padding(.leading, 60)
                         
                         Text("system")
-                            .font(.system(size: 25))
+                            .font(.system(size: UIScreen.screenHeight / 30))
                     }
                     
                     Button("Count") {
@@ -297,20 +311,21 @@ struct SystemsView: View {
                     }
                     .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 27))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
                     .opacity(0.8)
                     
                     Text(viewModel.resultText)
-                        .frame(height: 70)
+                        .frame(height: UIScreen.screenHeight / 11)
                         .foregroundColor(.black)
-                        .frame(width: 340.0)
-                        .font(.system(size: 30))
+                        .frame(maxWidth: .infinity)
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .background(Color.white)
                         .cornerRadius(5)
                         .opacity(0.8)
+                        .padding(.horizontal, 20)
                     
                     Spacer()
                 }

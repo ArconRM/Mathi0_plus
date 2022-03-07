@@ -31,7 +31,6 @@ struct SquareEqsView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 10)
                     .padding(.leading, 30)
                     .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -46,11 +45,11 @@ struct SquareEqsView: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 3)
-                    .padding(.top, 10)
                     .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                 }
+                .padding(.top, 40)
                 
                 HStack {
                     Text("a =")

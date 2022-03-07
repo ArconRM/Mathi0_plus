@@ -43,6 +43,7 @@ struct CalcView: View {
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                             .bold()
                             .padding()
+                            .padding(.top, 40)
                     }
                     
                     Spacer()
@@ -57,6 +58,7 @@ struct CalcView: View {
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                             .font(.system(size: UIScreen.screenHeight / 20))
                     }
+                    .padding(.top, 40)
                 }
                 
                 HStack {
@@ -108,7 +110,7 @@ struct CalcButtonStyle: ButtonStyle {
         configuration.label
             .frame(width: item == CalcButtons.zero ? UIScreen.screenWidth / 2.6 : UIScreen.screenWidth / 7.3, height: UIScreen.screenHeight / 15.7, alignment: .center)
             .padding()
-            .foregroundColor(.black)
+            .foregroundColor(.white)
             .background(configuration.isPressed ? color.opacity(0.4) : color)
             .cornerRadius(12)
             .shadow(color: .black.opacity(0.8), radius: 3, x: 1, y: 1)

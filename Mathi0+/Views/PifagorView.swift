@@ -37,7 +37,7 @@ struct PifagorView: View {
                         }
                         .padding(.top, 40)
                         .padding(.leading, 30)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -45,7 +45,7 @@ struct PifagorView: View {
                     Text("What do you need\n to find?")
                         .multilineTextAlignment(.center)
                         .foregroundColor(.white)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .padding(.top, 10)
                     
                     Spacer()
@@ -61,9 +61,10 @@ struct PifagorView: View {
                         generator.impactOccurred()
                     } label: {
                         Text("Cathetus")
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .foregroundColor(.black)
-                            .frame(width: 250, height: 90, alignment: .center)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: UIScreen.screenHeight / 8, alignment: .center)
                             .padding()
                     }
                     .buttonStyle(.bordered)
@@ -71,6 +72,7 @@ struct PifagorView: View {
                     .cornerRadius(20)
                     .shadow(radius: 2)
                     .padding(.bottom)
+                    .padding(.horizontal, 30)
                     
                     Button {
                         withAnimation(.easeInOut) {
@@ -83,21 +85,22 @@ struct PifagorView: View {
                         generator.impactOccurred()
                     } label: {
                         Text("Hypotenuse")
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .foregroundColor(.black)
-                            .frame(width: 250, height: 90, alignment: .center)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: UIScreen.screenHeight / 8, alignment: .center)
                             .padding()
                     }
                     .buttonStyle(.bordered)
                     .background(.white.opacity(0.5))
                     .cornerRadius(20)
                     .shadow(radius: 2)
-                    .padding(.vertical)
-                    .padding(.bottom, 70)
+                    .padding(.bottom)
+                    .padding(.horizontal, 30)
                     
                     Spacer()
                 }
-            } else if viewModel.showCatetView {
+            } else if viewModel.showGipotView {
                 VStack {
                     HStack {
                         Button("<") {
@@ -113,8 +116,7 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.leading, 30)
-                        .padding(.top, 40)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -127,24 +129,24 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.trailing, UIScreen.screenWidth / 3)
-                        .padding(.top, 40)
-                        .font(.system(size: 30))
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
+                    .padding(.top, 40)
                     
                     HStack {
                         Text("a = ")
-                            .font(.system(size: 40))
+                            .font(.system(size: UIScreen.screenHeight / 21))
                             .padding()
                         
                         Text(viewModel.aText)
-                            .frame(height: 70)
+                            .frame(width: UIScreen.screenWidth - 115)
+                            .frame(height: UIScreen.screenHeight / 13)
                             .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                             .cornerRadius(5)
-                            .padding(.trailing, 10)
+                            .padding(.trailing, 20)
                             .opacity(0.8)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
@@ -156,17 +158,17 @@ struct PifagorView: View {
                     
                     HStack {
                         Text("b = ")
-                            .font(.system(size: 40))
+                            .font(.system(size: UIScreen.screenHeight / 21))
                             .padding()
                         
                         Text(viewModel.bText)
-                            .frame(height: 70)
+                            .frame(width: UIScreen.screenWidth - 115)
+                            .frame(height: UIScreen.screenHeight / 13)
                             .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .background(viewModel.selectedTextField == .b ? Color.white.opacity(0.5) : Color.white)
                             .cornerRadius(5)
-                            .padding(.trailing, 10)
+                            .padding(.trailing, 20)
                             .opacity(0.8)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
@@ -189,7 +191,7 @@ struct PifagorView: View {
                     }
                     .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 27))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
@@ -199,7 +201,7 @@ struct PifagorView: View {
                     Spacer()
                     
                     Text(viewModel.resultText)
-                        .font(.system(size: 25))
+                        .font(.system(size: UIScreen.screenHeight / 32))
                         .frame(width: UIScreen.screenWidth - 30)
                         .frame(height: UIScreen.screenHeight / 3 + 20)
                         .background(.white)
@@ -207,8 +209,9 @@ struct PifagorView: View {
                         .cornerRadius(10)
                         .opacity(0.8)
                         .multilineTextAlignment(.center)
+                        .padding(.bottom, 10)
                 }
-            } else if viewModel.showGipotView {
+            } else if viewModel.showCatetView {
                 VStack {
                     HStack {
                         Button("<") {
@@ -223,9 +226,8 @@ struct PifagorView: View {
                             generator.prepare()
                             generator.impactOccurred()
                         }
-                        .padding(.top, 40)
                         .padding(.leading, 30)
-                        .font(.system(size: 40))
+                        .font(.system(size: UIScreen.screenHeight / 20))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                         
                         Spacer()
@@ -238,23 +240,24 @@ struct PifagorView: View {
                             generator.impactOccurred()
                         }
                         .padding(.trailing, UIScreen.screenWidth / 3)
-                        .padding(.top, 40)
-                        .font(.system(size: 30))
+                        .font(.system(size: UIScreen.screenHeight / 26))
                         .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
+                    .padding(.top, 40)
+                    
                     HStack {
                         Text("a = ")
-                            .font(.system(size: 40))
+                            .font(.system(size: UIScreen.screenHeight / 21))
                             .padding()
                         
                         Text(viewModel.aText)
-                            .frame(height: 70)
+                            .frame(width: UIScreen.screenWidth - 115)
+                            .frame(height: UIScreen.screenHeight / 13)
                             .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                             .cornerRadius(5)
-                            .padding(.trailing, 10)
+                            .padding(.trailing, 20)
                             .opacity(0.8)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
@@ -266,17 +269,17 @@ struct PifagorView: View {
                     
                     HStack {
                         Text("c = ")
-                            .font(.system(size: 40))
+                            .font(.system(size: UIScreen.screenHeight / 21))
                             .padding()
                         
                         Text(viewModel.cText)
-                            .frame(height: 70)
+                            .frame(width: UIScreen.screenWidth - 115)
+                            .frame(height: UIScreen.screenHeight / 13)
                             .foregroundColor(.black)
-                            .frame(width: 260.0)
-                            .font(.system(size: 30))
-                            .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
+                            .font(.system(size: UIScreen.screenHeight / 26))
+                            .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                             .cornerRadius(5)
-                            .padding(.trailing, 10)
+                            .padding(.trailing, 20)
                             .opacity(0.8)
                             .onTapGesture {
                                 withAnimation(.easeInOut) {
@@ -299,7 +302,7 @@ struct PifagorView: View {
                     }
                     .frame(width: UIScreen.screenWidth - 60)
                     .padding()
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 27))
                     .foregroundColor(.white)
                     .background(.black.opacity(0.8))
                     .cornerRadius(20)
@@ -309,7 +312,7 @@ struct PifagorView: View {
                     Spacer()
                     
                     Text(viewModel.resultText)
-                        .font(.system(size: 25))
+                        .font(.system(size: UIScreen.screenHeight / 32))
                         .frame(width: UIScreen.screenWidth - 30)
                         .frame(height: UIScreen.screenHeight / 3 + 20)
                         .background(.white)
@@ -317,6 +320,7 @@ struct PifagorView: View {
                         .cornerRadius(10)
                         .opacity(0.8)
                         .multilineTextAlignment(.center)
+                        .padding(.bottom, 10)
                 }
             }
             

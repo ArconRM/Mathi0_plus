@@ -40,8 +40,7 @@ struct ConverterView: View {
                         generator.impactOccurred()
                     }
                     .padding(.leading, 30)
-                    .padding(.top, 40)
-                    .font(.system(size: 40))
+                    .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
@@ -53,8 +52,7 @@ struct ConverterView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 40)
-                    .font(.system(size: 30))
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                     Spacer()
@@ -67,21 +65,23 @@ struct ConverterView: View {
                         generator.impactOccurred()
                     } label: {
                         Label("", systemImage: "arrow.up.arrow.down.circle")
-                            .padding(.top, 40)
-                            .font(.system(size: 30))
+                            .font(.system(size: UIScreen.screenHeight / 26))
                             .foregroundColor(colorScheme == .dark ? .white : .black)
                     }
                     
                 }
+                    .padding(.top, 40)
+
                 Text(viewModel.number1Text)
                     .frame(height: 70)
                     .foregroundColor(.black)
-                    .frame(width: 340.0)
-                    .font(.system(size: 30))
+                    .frame(maxWidth: .infinity)
+                    .font(.system(size: UIScreen.screenHeight / 26))
                     .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
                     .padding(.vertical)
+                    .padding(.horizontal, 20)
                     .onTapGesture {
                         withAnimation(.easeInOut) {
                             viewModel.selectedTextField = .a
@@ -101,7 +101,8 @@ struct ConverterView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.vertical)
-                .frame(width: 340)
+                .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
                 .onChange(of: viewModel.value1) { V in
                     viewModel.Value1Changed()
                     
@@ -113,12 +114,13 @@ struct ConverterView: View {
                 Text(viewModel.number2Text)
                     .frame(height: 70)
                     .foregroundColor(.black)
-                    .frame(width: 340.0)
-                    .font(.system(size: 30))
-                    .background(Color.white)
+                    .frame(maxWidth: .infinity)
+                    .font(.system(size: UIScreen.screenHeight / 26))
+                    .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
                     .cornerRadius(5)
                     .opacity(0.8)
                     .padding(.vertical)
+                    .padding(.horizontal, 20)
                 
                 Picker(selection: $viewModel.value2, label: Text(viewModel.value2)) {
                     ForEach(viewModel.DefineValues(), id: \.self) { value in
@@ -127,7 +129,9 @@ struct ConverterView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.vertical)
-                .frame(width: 340).onChange(of: viewModel.value2) { V in
+                .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity)
+                .onChange(of: viewModel.value2) { V in
                     viewModel.Value2Changed()
                     
                     let generator = UIImpactFeedbackGenerator(style: .medium)
@@ -140,6 +144,7 @@ struct ConverterView: View {
                 Picker(selection: $viewModel.valuesType, label: Text(viewModel.valuesType.rawValue)) {
                     ForEach(TypesOfValues.allCases, id: \.self) { value in
                         Text(value.rawValue)
+                            .font(.system(size: UIScreen.screenHeight / 34))
                     }
                 }
                 .pickerStyle(WheelPickerStyle())

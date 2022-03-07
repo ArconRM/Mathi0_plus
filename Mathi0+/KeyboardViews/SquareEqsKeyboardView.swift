@@ -59,6 +59,9 @@ struct SquareEqsKeyboardView: View {
                                         case .no:
                                             return
                                         }
+                                        let generator = UIImpactFeedbackGenerator(style: .light)
+                                        generator.prepare()
+                                        generator.impactOccurred()
                                     }
                                     .padding(.trailing, 30)
                                     .buttonStyle(SquareEqsKeyboardButtonStyle(item: item))

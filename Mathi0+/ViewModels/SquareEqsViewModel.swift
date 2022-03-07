@@ -128,19 +128,17 @@ final class SquareEqsViewModel: ObservableObject {
                 
                 if ((a == 0) && (b != 0) && (c != 0)) {
                     x1 = -c/b
-                    x2 = x1
                     if GetFraction(a: x1).count > 10 {
-                        resultText = "x1 = \(-c) / \(b) \n x2 = \(-c) / \(b)"
+                        resultText = "x = \(-c) / \(b)"
                     } else {
-                        resultText = "x1 = \(x1) \n x2 = \(x2)"
+                        resultText = "x = \(x1)"
                     }
                     break
                 }
                 
                 if ((a == 0) && (b != 0) && (c == 0)) {
                     x1 = 0
-                    x2 = x1
-                    resultText = "x1 = \(x1) \n x2 = \(x2)"
+                    resultText = "x1 = \(x1)"
                     break
                 }
                 
@@ -172,8 +170,7 @@ final class SquareEqsViewModel: ObservableObject {
                 
                 if ((a != 0) && (b == 0) && (c == 0)) {
                     x1 = 0
-                    x2 = 0
-                    resultText = "x1 = \(x1) \n x2 = \(x2)"
+                    resultText = "x1 = \(x1)"
                     break
                 }
                 

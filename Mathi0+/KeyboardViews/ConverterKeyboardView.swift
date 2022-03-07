@@ -50,6 +50,9 @@ struct ConverterKeyboardView: View {
                                         default:
                                             return
                                         }
+                                        let generator = UIImpactFeedbackGenerator(style: .light)
+                                        generator.prepare()
+                                        generator.impactOccurred()
                                     }
                                     .padding(.trailing, 30)
                                     .buttonStyle(ConverterKeyboardButtonStyle(item: item))

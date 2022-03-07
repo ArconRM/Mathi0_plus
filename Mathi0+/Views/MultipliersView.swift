@@ -35,7 +35,6 @@ struct MultipliersView: View {
                         generator.prepare()
                         generator.impactOccurred()
                     }
-                    .padding(.top, 10)
                     .padding(.leading, 30)
                     .font(.system(size: UIScreen.screenHeight / 20))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
@@ -50,12 +49,11 @@ struct MultipliersView: View {
                         generator.impactOccurred()
                     }
                     .padding(.trailing, UIScreen.screenWidth / 3)
-                    .padding(.top, 10)
                     .font(.system(size: UIScreen.screenHeight / 26))
                     .foregroundColor(colorScheme == .dark ? .white : .black)
                     
                 }
-                .padding(.bottom, UIScreen.screenHeight / 20)
+                .padding(.top, 40)
                 
                 Text(viewModel.numberText)
                     .frame(width: UIScreen.screenWidth - 30)
@@ -101,7 +99,7 @@ struct MultipliersView: View {
                     .cornerRadius(10)
                     .opacity(0.8)
                     .multilineTextAlignment(.center)
-                    .padding(.bottom)
+                    .padding(.bottom, 10)
             }
             .onTapGesture {
                 withAnimation(.easeInOut) {
