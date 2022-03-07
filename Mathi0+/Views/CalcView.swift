@@ -71,6 +71,7 @@ struct CalcView: View {
                     Text(viewModel.resultText)
                         .padding([.bottom, .trailing])
                         .font(.system(size: CGFloat(viewModel.DefineFontSize())))
+                        .foregroundColor(.white)
                 }
                 
                 Spacer()
@@ -87,7 +88,7 @@ struct CalcView: View {
                             } label: {
                                 Text(item.rawValue)
                                     .font(.system(size: 35))
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundColor(.white)
                             }
                             .buttonStyle(CalcButtonStyle(item: item, color: viewModel.DefineColor(item: item), count: viewModel.resultText.count))
                         }
@@ -110,7 +111,7 @@ struct CalcButtonStyle: ButtonStyle {
         configuration.label
             .frame(width: item == CalcButtons.zero ? UIScreen.screenWidth / 2.6 : UIScreen.screenWidth / 7.3, height: UIScreen.screenHeight / 15.7, alignment: .center)
             .padding()
-            .foregroundColor(.white)
+            .foregroundColor(.black)
             .background(configuration.isPressed ? color.opacity(0.4) : color)
             .cornerRadius(12)
             .shadow(color: .black.opacity(0.8), radius: 3, x: 1, y: 1)

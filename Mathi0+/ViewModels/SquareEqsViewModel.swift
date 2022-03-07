@@ -160,7 +160,11 @@ final class SquareEqsViewModel: ObservableObject {
                         x1 = _sqrt(number: -c/a)
                         x2 = -x1
                         if GetFraction(a: x1).count > 10 {
-                            resultText = "x1 = √(\(-c) / \(a)) \n x2 = √(\(c) / \(a))"
+                            if GetFraction(a: c/a).count > 10 {
+                                resultText = "x1 = √(\(-c) / \(a)) \n x2 = √(\(c) / \(a))"
+                            } else {
+                                resultText = "x1 = √(\(-c / a)) \n x2 = √(\(c / a))"
+                            }
                         } else {
                             resultText = "x1 = \(x1) \n x2 = \(x2)"
                         }
