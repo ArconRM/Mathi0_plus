@@ -65,6 +65,7 @@ struct CalcView: View {
                     Text(viewModel.operationText)
                         .font(.system(size: UIScreen.screenHeight / 20))
                         .padding(.leading)
+                        .foregroundColor(.white)
                     
                     Spacer()
                     
