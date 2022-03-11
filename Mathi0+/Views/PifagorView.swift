@@ -277,7 +277,7 @@ struct PifagorView: View {
                             .frame(height: UIScreen.screenHeight / 13)
                             .foregroundColor(.black)
                             .font(.system(size: UIScreen.screenHeight / 26))
-                            .background(viewModel.selectedTextField == .a ? Color.white.opacity(0.5) : Color.white)
+                            .background(viewModel.selectedTextField == .c ? Color.white.opacity(0.5) : Color.white)
                             .cornerRadius(5)
                             .padding(.trailing, 20)
                             .opacity(0.8)

@@ -39,6 +39,7 @@ struct SquareEqsView: View {
                     
                     Button("Clear") {
                         viewModel.Clear()
+                        showKeyboard = false
                         
                         let generator = UIImpactFeedbackGenerator(style: .medium)
                         generator.prepare()

@@ -146,9 +146,10 @@ struct PifagorKeyboardView: View {
         }
         .ignoresSafeArea()
         .onTapGesture {
-            isShowing = false
+            withAnimation(.easeInOut) {
+                isShowing = false
+            }
         }
-        .animation(.easeInOut)
     }
 }
 

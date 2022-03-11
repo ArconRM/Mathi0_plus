@@ -241,6 +241,7 @@ final class SystemsViewModel: ObservableObject {
         system1 = .no
         system2 = .no
         operation = .no
+        showKeyboard = false
     }
     
     func SolveSystems() {

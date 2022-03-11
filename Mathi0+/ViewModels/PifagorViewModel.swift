@@ -91,6 +91,7 @@ final class PifagorViewModel: ObservableObject {
         cText = "0"
         resultText = ""
         selectedTextField = .no
+        showKeyboard = false
     }
     
     func SolveGip() {
