@@ -90,7 +90,7 @@ struct ConverterView: View {
                         }
                     }
                     .onChange(of: viewModel.number1Text) { newValue in
-                        viewModel.Number1Changed()
+                        viewModel.Convert()
                     }
                 
                 Picker(selection: $viewModel.value1, label: Text(viewModel.value1)) {
@@ -105,7 +105,7 @@ struct ConverterView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity)
                 .onChange(of: viewModel.value1) { V in
-                    viewModel.Value1Changed()
+                    viewModel.Convert()
                     
                     let generator = UIImpactFeedbackGenerator(style: .medium)
                     generator.prepare()
@@ -133,7 +133,7 @@ struct ConverterView: View {
                 .padding(.horizontal, 20)
                 .frame(maxWidth: .infinity)
                 .onChange(of: viewModel.value2) { V in
-                    viewModel.Value2Changed()
+                    viewModel.Convert()
                     
                     let generator = UIImpactFeedbackGenerator(style: .medium)
                     generator.prepare()
@@ -149,6 +149,9 @@ struct ConverterView: View {
                     }
                 }
                 .pickerStyle(WheelPickerStyle())
+                .onChange(of: viewModel.valuesType) { V in
+                    viewModel.Convert()
+                }
             }
             
             Spacer()

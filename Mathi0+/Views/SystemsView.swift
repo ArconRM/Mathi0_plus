@@ -259,6 +259,11 @@ struct SystemsView: View {
                             Text(value.rawValue)
                         }
                     }
+                    .onChange(of: viewModel.operation, perform: { V in
+                        let generator = UIImpactFeedbackGenerator(style: .medium)
+                        generator.prepare()
+                        generator.impactOccurred()
+                    })
                     .pickerStyle(SegmentedPickerStyle())
                     .padding(.horizontal)
                     

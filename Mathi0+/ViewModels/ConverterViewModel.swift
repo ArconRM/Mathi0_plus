@@ -82,25 +82,7 @@ final class ConverterViewModel: ObservableObject {
     
     @Published var valuesType: TypesOfValues = .no
     
-    func Number1Changed() {
-        if (number1Text != "") {
-            a = Decimal(string: number1Text)!
-        } else {
-            a = 0.0
-        }
-        number2Text = translate()
-    }
-    
-    func Value1Changed() {
-        if (number1Text != "") {
-            a = Decimal(string: number1Text)!
-        } else {
-            a = 0.0
-        }
-        number2Text = translate()
-    }
-    
-    func Value2Changed() {
+    func Convert() {
         if (number1Text != "") {
             a = Decimal(string: number1Text)!
         } else {
@@ -114,7 +96,7 @@ final class ConverterViewModel: ObservableObject {
         value = value1
         value1 = value2
         value2 = value
-        Value1Changed()
+        Convert()
     }
     
     func Clear() {
