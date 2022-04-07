@@ -105,7 +105,7 @@ struct PifagorView: View {
                     HStack {
                         Button("<") {
                             withAnimation(.easeInOut) {
-                                viewModel.showCatetView = false
+                                viewModel.showGipotView = false
                                 viewModel.showChooseView = true
                                 viewModel.showKeyboard = false
                                 viewModel.Clear()
@@ -216,7 +216,7 @@ struct PifagorView: View {
                     HStack {
                         Button("<") {
                             withAnimation(.easeInOut) {
-                                viewModel.showGipotView = false
+                                viewModel.showCatetView = false
                                 viewModel.showChooseView = true
                                 viewModel.showKeyboard = false
                                 viewModel.Clear()
