@@ -146,7 +146,7 @@ final class CalcViewModel: ObservableObject {
             switch item {
             case .percent:
                 resultText = String(currentNumber.doubleValue/100)
-            case .comma:
+            case .dot:
                 if (wasCommaPressedInThisNumber == false) && (resultText.count < 11) {
                     resultText = resultText + "."
                 }
@@ -203,7 +203,7 @@ final class CalcViewModel: ObservableObject {
             wasOperationPressed = false
             isOperationPressed = false
             wasCommaPressedInThisNumber = false
-        case .sqrt, .square, .cube, .comma, .factorial, .negative, .percent:
+        case .sqrt, .square, .cube, .dot, .factorial, .negative, .percent:
             NumberChange(item: item)
         case .divide, .add, .subtract, .multiply:
             Operations(item: item)
