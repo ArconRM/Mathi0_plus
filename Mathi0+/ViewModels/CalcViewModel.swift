@@ -19,7 +19,7 @@ enum CalcButtons: String {
     case eight = "8"
     case nine = "9"
     case zero = "0"
-    case comma = ","
+    case dot = "."
     case equal = "="
     case add = "+"
     case subtract = "-"
@@ -182,7 +182,7 @@ final class CalcViewModel: ObservableObject {
             switch item {
             case .percent:
                 resultText = String(currentNumber.doubleValue/100)
-            case .comma:
+            case .dot:
                 if (wasCommaPressedInThisNumber == false) && (resultText.count < 11) {
                     resultText = resultText + "."
                 }
@@ -241,7 +241,7 @@ final class CalcViewModel: ObservableObject {
             wasOperationPressed = false
             isOperationPressed = false
             wasCommaPressedInThisNumber = false
-        case .sqrt, .square, .cube, .comma, .factorial, .negative, .percent:
+        case .sqrt, .square, .cube, .dot, .factorial, .negative, .percent:
             NumberChange(item: item)
         case .divide, .add, .subtract, .multiply:
             Operations(item: item)
@@ -432,6 +432,9 @@ final class CalcViewModel: ObservableObject {
             }
         }
         formattedNumber += fractionalPart
+        if number < 0 && !formattedNumber.contains("-") {
+            formattedNumber = "-" + formattedNumber
+        }
         return formattedNumber
     }
     

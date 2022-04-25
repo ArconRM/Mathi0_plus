@@ -20,7 +20,7 @@ struct CalcView: View {
         [.seven, .eight, .nine, .multiply],
         [.four, .five, .six, .subtract],
         [.one, .two, .three, .add],
-        [.zero, .comma, .equal]
+        [.zero, .dot, .equal]
     ]
     
     var body: some View {
