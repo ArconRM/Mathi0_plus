@@ -264,6 +264,7 @@ final class CalcViewModel: ObservableObject {
         if resultText.count > 3 {
             resultText = separatedNumber(strNumber: resultText, number: Decimal(string: resultText.replacingOccurrences(of: " ", with: ""))!, wasCommaPressed: wasCommaPressedInThisNumber)
         }
+        currentNumber = Decimal(string: resultText.replacingOccurrences(of: " ", with: "")) ?? 0
     }
     
     func DefineColor(item: CalcButtons) -> Color {
