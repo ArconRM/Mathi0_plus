@@ -161,9 +161,9 @@ final class SquareEqsViewModel: ObservableObject {
                         x2 = -x1
                         if GetFraction(a: x1).count > 10 {
                             if GetFraction(a: c/a).count > 10 {
-                                resultText = "x1 = √(\(-c) / \(a)) \n x2 = √(\(c) / \(a))"
+                                resultText = "x1 = √(\(abs(c)) / \(abs(a))) \n x2 = - √(\(abs(c)) / \(abs(a))"
                             } else {
-                                resultText = "x1 = √(\(-c / a)) \n x2 = √(\(c / a))"
+                                resultText = "x1 = √(\(abs(c / a))) \n x2 = - √(\(abs(c / a))"
                             }
                         } else {
                             resultText = "x1 = \(x1) \n x2 = \(x2)"
